@@ -289,7 +289,22 @@ This feature allows users to share additional information with the restaurant th
 This specific feature would hold a very minor impact on the user experience but is more of a nice addition. 
 
 # Website Structure
+
+The website will be structured to provide an easy, intuitive, and consistent experience for both customer and staff users.
+
+The homepage will give visitors an immediate insight into the restaurant's atmosphere and identity through a clear navigation bar, engaging hero banner, and informative About Us section.
+
+The navigation bar will provide quick access to key areas of the website, including the About Us section, menu, contact information, and booking call-to-action. It will also include Log In and Sign Up options, allowing users to easily access their accounts and manage their bookings.
+
+The hero banner will feature a selection of high-quality photographs showcasing the restaurant, food, and surroundings. This will give visitors a clear impression of the cuisine, atmosphere, and overall dining experience before making a reservation.
+
+The About section provides users with an engaging introduction to the restaurant, giving them an insight into its atmosphere, values, and overall dining experience. It will also include a description of the cuisine and highlight what makes the restaurant a welcoming and enjoyable place to visit.
+
+The contact section will be incorporated into the website footer, ensuring that it is easily accessible from every page and providing a consistent user experience. It will include the restaurant's address, contact details, and opening hours, allowing customers to quickly find essential information whenever they need it.
+
 ## User Journey
+
+When users first visit the website, they are greeted with the homepage. The purpose of the homepage is to entice and encourage users to book and visit the business. From there, they have access to the call-to-action button to navigate to the booking form page.
 
 # Website Skeleton
 ## Wireframes
