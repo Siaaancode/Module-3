@@ -1,1 +1,1 @@
-web: gunicorn bookings.wsgi
+web: gunicorn module_3.wsgi
