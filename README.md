@@ -304,15 +304,38 @@ The contact section will be incorporated into the website footer, ensuring that 
 
 ## User Journey
 
-When users first visit the website, they are greeted with the homepage. The purpose of the homepage is to entice and encourage users to book and visit the business. From there, they have access to the call-to-action button to navigate to the booking form page.
+When users first visit the website, they will be greeted by the homepage, which provides an introduction to the restaurant and encourages them to explore the website or make a booking. From the homepage, users can navigate to the Booking, About Us, Menu and Contact Us sections.
+
+Users can learn more about the restaurant through the About Us section, which provides information about the restaurant's atmosphere, cuisine and overall dining experience. A call-to-action button will then encourage users to continue to the booking page if they are interested in making a reservation.
+
+Users can also visit the Menu page to explore some of the dishes available at the restaurant. This gives users an idea of what they can expect before visiting. A disclaimer will explain that the menu may change daily and that some dishes are subject to availability.
+
+If users need to find information about the restaurant, they can access the Contact Us section. This will provide the restaurant's address, telephone number, email address and opening hours. The contact information will also be available in the footer across all pages, allowing users to access it easily throughout their journey.
+
+When users are ready to make a reservation, they can select the Booking option from the navigation or one of the call-to-action buttons. The booking process will allow users to select the number of guests, date and time they would like to visit. They can then enter their personal details and provide any special requests or seating preferences before confirming their reservation.
+
+Once the booking has been successfully completed, users will receive a booking confirmation containing their reservation details. This allows them to check that the information is correct and provides a reminder of their upcoming visit. Users will also be able to edit or cancel their reservation if their plans change.
 
 # Website Skeleton
 ## Wireframes
-### (INSERT DIFFERENT PAGE ELEMENTS HERE) 
-### (INSERT DIFFERENT PAGE ELEMENTS HERE)
-### (INSERT DIFFERENT PAGE ELEMENTS HERE)
-### (INSERT DIFFERENT PAGE ELEMENTS HERE)
-### (INSERT DIFFERENT PAGE ELEMENTS HERE)
+
+These wireframes were created during the planning stages of my project to establish a initial layout structure and generate ideas for the functionality to include. They helped to visualise the placement of key information and features, as well as supporting the development of an organised and clean interface. 
+
+### Home Page
+
+![Nav bar / Hero banner](/assets/images/wireframes/home_page/wireframes_home_page_navbar_and_hero_banner.png)
+![About us](/assets/images/wireframes/home_page/wireframes_about_us_section.png)
+![Contact us](/assets/images/wireframes/home_page/wireframes_contact_us_section.png)
+
+### Menu Page
+![Menu](/assets/images/wireframes/menu_page/wireframes_menu_page_menu_and_hero_banner.png)
+
+### Booking Page
+![Calender](/assets/images/wireframes/booking_page/wireframes_booking_section_calender.png)
+![Information section](/assets/images/wireframes/booking_page/wireframes_booking_section_additional_information.png)
+![Details](/assets/images/wireframes/booking_page/wireframes_booking_section_detail_section.png)
+![Confirmation](/assets/images/wireframes/booking_page/wireframes_booking_confirmation_page.png)
+
 
 ## Page layout and Interface elements
 ### (INSERT DIFFERENT PAGE ELEMENTS HERE) 
@@ -323,16 +346,30 @@ When users first visit the website, they are greeted with the homepage. The purp
 
 ## Responsiveness
 
+Responsive design is an essential industry standard, ensuring that users have a consistent experience across all device sizes. This web application was developed with accessibility as a key priority, following a mobile-first approach. The layout and interface were designed for smaller screens initially, before being progressively enhanced and adapted for larger devices.
+
+All pages of the application achieve a Lighthouse accessibility score of 100, demonstrating a strong commitment to inclusive design and adherence to recognised web accessibility best practices.
+
 # Website Surface
 ## Design Choice
+
+The design choices made throughout this project were intended to create a clean, modern, and professional aesthetic that aligns with the purpose of the web application. A consistent colour palette, typography, and spacing system were used to establish a strong visual identity while maintaining readability and ease of use. The interface was designed to minimise unnecessary visual clutter, allowing users to focus on the application's core functionality.
+
 ## Colour Palette
+
+White - #FFFFFF
+Black - #000000
+Flag Red - #CC2020
+
 ## Typography
+
+For the typography I have chosen GoogleFont' Work Sans (https://fonts.google.com/specimen/Work+Sans?previewlayout=grid&lang=en_Latn&preview.script=Latn&preview.lang=en_Latn). For a secondary font, I will be using monospace as a backup in case the google font fails to load.
 
 # Technologies used (EDIT THESE SO APPROPRIATE)
 
 - HTML, Structure of the website.
 - CSS, Styling and layout.
-- Javascript, interactivity and calculations.
+- Javascript, interactivity.
 - Git, version control.
 - GitHub, Code hosting and project management.
 - W3C, Markup and CSS validator.
@@ -342,7 +379,9 @@ When users first visit the website, they are greeted with the homepage. The purp
 - Favic-o-matic, Favicon generator.
 - GoogleFonts, Custom Fonts.
 - localStorage API
-- Chart.js, Pie chart integration
+- Python, Backend functionality and application logic.
+- Heroku, Deploy and host the website online.
+- Django, Python framework.
 
 # Manual/Automated Testing
 
