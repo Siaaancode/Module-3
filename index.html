@@ -1,23 +1,134 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <!-- CSS Stylesheet-->
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <!-- Favicon icons -->
 
-    </head>
-    <body>
-        <header>
-        </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- CSS Stylesheet-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Favicon icons -->
 
-        <main>
-        </main>
+</head>
 
-        <footer>
-            <p>&copy; 2026</p>
-        </footer>
-    </body>
-    </html>
+<body>
+    <!-- Navigation bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Kokoro <span style="color: red;">心</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Kokoro <span style="color: red;">心</span>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#about-us">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Menu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Book now</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#footer-container">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Banner Carousel-->
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/images/hero_banner_images/hero_banner_customers_in_restaurant.png"
+                        class="d-block w-100" alt="Customers enjoying their meal at the restaurant">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/hero_banner_images/hero_banner_image_restaurant_view.png"
+                        class="d-block w-100" alt="Photo of the restaurant's interior with a view of the dining area">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/hero_banner_images/hero_banner_chefs_in_kitchen_cooking.png"
+                        class="d-block w-100" alt="Professional chefs preparing dishes in the restaurant's kitchen">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- About Us Section -->
+        <section id="about-us">
+            <h1>Step into another world at Kokoro<span style="color: red;">.</span></h1>
+            <p>At Kokoro, we invite you to embark on a culinary journey that transcends the ordinary. Our restaurant is
+                a haven for food enthusiasts seeking an authentic Japanese dining experience. From the moment you step
+                through our doors, you'll be transported to a world where tradition meets innovation, and every dish
+                tells a story.</p>
+            <p>Our chefs are masters of their craft, meticulously preparing each dish with the finest ingredients
+                sourced from local and international markets. Whether you're savoring the delicate flavors of our sushi,
+                indulging in the rich umami of our ramen, or exploring our seasonal specials, every bite is a testament
+                to our commitment to excellence.</p>
+            <p>Beyond the food, Kokoro offers an ambiance that captures the essence of Japanese culture. Our
+                thoughtfully designed interior, inspired by traditional aesthetics, creates a serene and inviting
+                atmosphere, perfect for intimate dinners, family gatherings, or special celebrations. Our attentive
+                staff is dedicated to providing impeccable service, ensuring that your dining experience is nothing
+                short of extraordinary.</p>
+        </section>
+    </main>
+
+    <footer id="footer-container">
+        <section id="location-information">
+            <h2>How to find us<span style="color: red;"> .</span></h2>
+            <p>123 Hungry Street,<br>
+                Foodtropolis,<br>
+                Earth<br>
+                F16 9BH</p><hr>
+
+            <section id="contact-information">
+                <h2>Contact Us<span style="color: red;"> .</span></h2>
+                <p>Phone: 01305 857492<br>
+                    Email: hello@kokoro.com</p>
+            </section><hr>
+        </section>
+
+        <section id="opening-hours">
+            <h2>Opening hours<span style="color: red;"> .</span></h2>
+            <p>Monday - Friday: 12:00 PM - 22:00 PM<br>
+                Saturday - Sunday: 12:00 PM - 23:00 PM</p>
+        </section>
+
+        <div id="copyright">
+            <p>&copy; Kokoro, 2026</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

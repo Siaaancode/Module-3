@@ -1,3 +1,78 @@
 /* Import Google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Body styles */
+body {
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation bar */
+
+header {
+    height: 70px;
+}
+
+.navbar {
+    background-color: black !important;
+    height: 70px;
+}
+
+.navbar-brand {
+    color: white !important;
+}
+
+.navbar-toggler {
+    background-color: white !important;
+}
+
+/* Hero banner */
+
+#hero-banner {
+    width: 100%;
+    height: 300px;
+}
+
+#hero-banner img {
+    width: 100%;
+    height: auto;
+}
+
+/* About us */
+
+#about-us {
+    padding: 30px;
+}
+
+#about-us h1,
+#about-us p {
+    text-align: center;
+    margin: 20px;
+}
+
+/* Footer */
+
+#footer-container {
+    background-color: black;
+    color: white;
+}
+
+#location-information,
+#contact-information {
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+#opening-hours {
+    padding: 0 20px;
+    width: 100%;
+    text-align: center;
+}
+
+#copyright {
+    height: 50px;
+    padding-top: 20px;
+    text-align: center;
+}
