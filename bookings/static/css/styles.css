@@ -115,3 +115,10 @@ h3 {
 #signup {
     margin: 40px;
 }
+
+/* Booking page */
+#calendar {
+    max-width: 1000px;
+    margin: 100px auto 40px;
+    padding: 20px;
+}

@@ -12,6 +12,9 @@ def index(request):
 def menu(request):
     return render(request, "menu.html")
 
+def booking_page(request):
+    return render(request, "booking_page.html")
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -29,12 +32,11 @@ def signup(request):
 
     return render(request, 'signup.html', {'form': form})
 
-@login_required
 def create_booking(request):
     # Booking form and booking logic
     if request.method == "POST":
         booking_date = request.POST.get("booking_date")
 
         print(booking_date)
-    return render(request, "booking.html")
+    return render(request, "booking_page.html")
 
