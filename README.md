@@ -452,6 +452,33 @@ Github Pages - Passed
 ## Code
 ### ChatGPT
 
+I used ChatGPT to understand how I could extend the requirements for the sign up form. Django offered simple requirements, but I wanted additional elements, like firstname, surname and email.
+
+I created a form.py file to add this information:
+
+"""
+
+    from django import forms
+    from django.contrib.auth.forms import UserCreationForm
+    from django.contrib.auth.models import User
+
+
+    class SignUpForm(UserCreationForm):
+        first_name = forms.CharField(max_length=30,     required=True)
+        last_name = forms.CharField(max_length=30,  required=True)
+        email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password1',
+            'password2',
+        )
+
 
 
 # TO BE DELETED ONCE COMPLETED

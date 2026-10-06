@@ -43,6 +43,7 @@ header {
 
 #about-us {
     padding: 30px;
+    scroll-margin-top: 65px;
 }
 
 #about-us h1,

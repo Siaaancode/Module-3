@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <!-- Navigation bar -->
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
             <div class="container-fluid">
@@ -34,30 +35,50 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="#about-us" data-bs-dismiss="offcanvas">About Us</a>
+                                <a class="nav-link active" href="{% url 'index' %}#about-us">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="{% url 'menu' %}"
-                                    data-bs-dismiss="offcanvas">Menu</a>
+                                <a class="nav-link" href="/menu/">Menu</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-dismiss="offcanvas">Book now</a>
+                                <a class="nav-link" href="/booking_page/">Book now</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#footer-container" data-bs-dismiss="offcanvas">Contact Us</a>
+                                <a class="nav-link" href="{% url 'index' %}#footer-container">Contact Us</a>
                             </li>
+                            <hr>
+
                             {% if user.is_authenticated %}
+
+                            <li class="nav-item">
+                                <span class="nav-link">
+                                    Welcome, {{ user.username }}
+                                </span>
+                            </li>
+
+                            <li class="nav-item">
+                                <form method="POST" action="{% url 'logout' %}">
+                                    {% csrf_token %}
+                                    <button class="nav-link" type="submit">
+                                        Log Out
+                                    </button>
+                                </form>
+                            </li>
+
+                            {% else %}
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'login' %}">
                                     Log In
                                 </a>
                             </li>
-                            {% else %}
+
                             <li class="nav-item">
-                                <a class="nav-link active" href="{% url 'signup' %}">
+                                <a class="nav-link" href="{% url 'signup' %}">
                                     Sign Up
                                 </a>
                             </li>
+
                             {% endif %}
                         </ul>
                     </div>

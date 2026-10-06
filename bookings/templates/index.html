@@ -35,18 +35,18 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#about-us" data-bs-dismiss="offcanvas">About Us</a>
+                                <a class="nav-link active" href="{% url 'index' %}#about-us">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'menu' %}"
-                                    data-bs-dismiss="offcanvas">Menu</a>
+                                <a class="nav-link" href="/menu/">Menu</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-dismiss="offcanvas">Book now</a>
+                                <a class="nav-link" href="/booking_page/">Book now</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#footer-container" data-bs-dismiss="offcanvas">Contact Us</a>
+                                <a class="nav-link" href="{% url 'index' %}#footer-container">Contact Us</a>
                             </li>
+                            <hr>
 
                             {% if user.is_authenticated %}
 
