@@ -21,11 +21,19 @@ from bookings import views as index_views
 
 
 urlpatterns = [
-    path('', index_views.index, name='index'),
-    path('admin/', admin.site.urls),
+    path('admin/', 
+        admin.site.urls
+    ),
 
-    # Creates login and sign-up URLs
-    path('sign_up/', index_views.signup, name='signup'),
+    path('', 
+        index_views.index, 
+        name='index'
+    ),
+    
+    path('sign_up/', 
+        index_views.signup, 
+        name='signup'
+    ),
     path(
         'login/',
         auth_views.LoginView.as_view(template_name='login.html'),
@@ -39,5 +47,11 @@ urlpatterns = [
     path(
         'book/', 
         index_views.create_booking, 
-        name='create_booking'),
+        name='booking_page'
+    ),
+    path(
+        'menu/',
+        index_views.menu,
+        name='menu'
+    ),
 ]

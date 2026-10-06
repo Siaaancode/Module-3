@@ -438,6 +438,8 @@ Github Pages - Passed
 
 ### Fixed
 
+1. Getting Bootstrap CSS to work with Django: I was using the wrong href links to make the CSS compatible with the Django framework. ie, "css/style.css" instead of {% static 'css/styles.css' %}.
+
 ### Not Fixed
 
 # Project Evaluation

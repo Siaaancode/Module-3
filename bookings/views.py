@@ -7,7 +7,10 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Hello, world.")
+    return render(request, 'index.html')
+
+def menu(request):
+    return render(request, "menu.html")
 
 def signup(request):
     if request.method == 'POST':
@@ -28,4 +31,9 @@ def signup(request):
 @login_required
 def create_booking(request):
     # Booking form and booking logic
-    return render(request, 'create_booking.html')
+    if request.method == "POST":
+        booking_date = request.POST.get("booking_date")
+
+        print(booking_date)
+    return render(request, "booking.html")
+
