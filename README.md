@@ -440,8 +440,10 @@ Github Pages - Passed
 
 1. Getting Bootstrap CSS to work with Django: I was using the wrong href links to make the CSS compatible with the Django framework. ie, "css/style.css" instead of 
 ```
-"{% static 'css/styles.css' %}". 
+{% raw %}{% static 'css/styles.css' %}{% endraw %}. 
 ```
+
+2. Couldn't commit because of the first bug documented: Github uses Jekyll and it interperates the above fix as an issue in the readme file.
 
 ### Not Fixed
 
