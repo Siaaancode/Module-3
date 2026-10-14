@@ -122,3 +122,17 @@ h3 {
     margin: 100px auto 40px;
     padding: 20px;
 }
+
+/* Highlight the date selected for the booking. */
+#calendar .selected-date-cell {
+    background-color: red;
+    color: white;
+}
+
+/* Override the Monarch purple palette within the calendar. */
+#calendar {
+    --fc-monarch-tertiary: transparent;
+    --fc-monarch-tertiary-foreground: inverted;
+    --fc-monarch-tertiary-over: transparent;
+    --fc-monarch-tertiary-down: transparent;
+}
