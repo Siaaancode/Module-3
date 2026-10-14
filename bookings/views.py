@@ -35,8 +35,11 @@ def signup(request):
 def create_booking(request):
     # Booking form and booking logic
     if request.method == "POST":
-        booking_date = request.POST.get("booking_date")
+        guests = request.POST.get("guests")
+        booking_time = request.POST.get("booking_time")
 
-        print(booking_date)
+        print("Number of guests:", guests)
+        print("Booking time:", booking_time)
+
     return render(request, "booking_page.html")
 
