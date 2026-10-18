@@ -2,12 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import SignUpForm
 from django.contrib import messages
 from datetime import datetime, date, time, timedelta
-from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.http import JsonResponse
-from django.shortcuts import render, redirect
 from django.utils import timezone
-from django.http import HttpResponse
 from .models import Booking, Table
 
 def index(request):
@@ -39,6 +36,82 @@ def signup(request):
 def create_booking(request):
     # Booking form and booking logic
     if request.method == "POST":
+        try:
+            booking_date = date.fromisoformat(
+                request.POST.get("booking_date", "")
+            )
+            booking_time = time.fromisoformat(
+                request.POST.get("booking_time", "")
+            )
+            guests = int(request.POST.get("guests", ""))
+
+            if guests < 1:
+                raise ValueError
+
+        except (TypeError, ValueError):
+            return render(request, "booking_page.html", {
+                "error": "Please select a valid date, time and number of guests.",
+            })
+        if booking_date < timezone.localdate():
+            return render(request, "booking_page.html", {
+                "error": "Please choose today or a future date.",
+            })
+
+        start = datetime.combine(booking_date, booking_time)
+        end = start + timedelta(minutes=BOOKING_DURATION)
+        opening = datetime.combine(booking_date, OPENING_TIME)
+        closing = datetime.combine(booking_date, CLOSING_TIME)
+
+        if (
+            booking_time.minute % SLOT_INTERVAL != 0
+            or start < opening
+            or end > closing
+        ):
+            return render(request, "booking_page.html", {
+                "error": "Please select one of the available booking times.",
+            })
+
+        with transaction.atomic():
+            suitable_tables = list(
+                Table.objects.select_for_update().filter(
+                    is_active=True,
+                    seats__gte=guests,
+                ).order_by("seats", "table_number")
+            )
+
+            table = None
+
+            for candidate in suitable_tables:
+                if table_is_available(
+                    candidate, booking_date, booking_time
+                ):
+                    table = candidate
+                    break
+
+                if table is None:
+                    return render(request, "booking_page.html", {
+                        "error": (
+                            "Sorry, that time is no longer available. "
+                            "Please choose another time."
+                        ),
+                    })
+
+                Booking.objects.create(
+                    user=request.user,
+                    table=table,
+                    booking_date=booking_date,
+                    booking_time=booking_time,
+                    guests=guests,
+                    duration_minutes=BOOKING_DURATION,
+                    status="confirmed",
+                )
+
+            return render(request, "booking_page.html", {
+                "success": "Your booking has been made successfully!",
+            })
+
+        return render(request, "booking_page.html")
+    
         guests = request.POST.get("guests")
         booking_time = request.POST.get("booking_time")
 
@@ -68,7 +141,7 @@ def table_is_available(table, booking_date, booking_time):
         if booking.booking_time is None:
             continue
 
-        existing_start = datetime.Combine(
+        existing_start = datetime.combine(
             booking.booking_date,
             booking.booking_time,
         )
@@ -125,12 +198,14 @@ def available_times(request):
     while current + duration <= closing:
         slot_time = current.time()
 
-        if (
+        is_future_time = (
             booking_date != timezone.localdate()
             or current > datetime.combine(
                 booking_date, timezone.localtime().time()
             )
-        ):
+        )
+
+        if is_future_time:
             table = find_available_table(
                 booking_date,
                 slot_time,

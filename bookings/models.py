@@ -50,7 +50,7 @@ class Booking(models.Model):
     )
 
     duration_minutes = models.PositiveIntegerField(
-        default=60
+        default=120
     )
 
     status = models.CharField(
