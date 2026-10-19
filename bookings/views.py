@@ -110,18 +110,15 @@ def create_booking(request):
             # Find the first table without an overlapping confirmed booking
             for candidate in suitable_tables:
                 if table_is_available(
-                    candidate, booking_date, booking_time
-                ):
+                    candidate, booking_date, booking_time):
                     table = candidate
                     break
 
             # Stop if every suitable table is already booked
             if table is None:
                 return render(request, "booking_page.html", {
-                    "error": (
-                        "Sorry, that time is no longer available. "
-                        "Please choose another time."
-                    ),
+                    "error": "Sorry, that time is no longer available. "
+                        "Please choose another time.",
                 })
 
             # Save the booking with its customer, allocated table and details

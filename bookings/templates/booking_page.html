@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <!-- Favicon icons -->
 
-
+    <script>
+        const availableTimesUrl = "{% url 'available_times' %}";
+    </script>
 
 </head>
 
@@ -99,8 +101,10 @@
         <!-- Selected date -->
         <p id="selected-date" aria-live="polite"> No date selected yet. </p>
 
-        <form method="POST"> {% csrf_token %} <!-- Stores the date selected on the calendar --> <input type="hidden"
-                id="booking_date" name="booking_date" required>
+        <form method="POST" action="{% url 'booking_page' %}">
+            {% csrf_token %}
+
+            <input type="hidden" id="booking_date" name="booking_date" required>
             <div class="booking-field"> <label for="guests"> Number of guests </label>
                 <select id="guests" name="guests" required>
                     <option value="">Select guests</option>

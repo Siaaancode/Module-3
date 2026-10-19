@@ -60,4 +60,4 @@ class Booking(models.Model):
     )
 
     def __str__(self):
-        return f"Booking {self.id} - {self.booking_date} {self.booking_table}"
+        return f"Booking {self.id} - {self.booking_date} {self.table}"
