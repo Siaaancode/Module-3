@@ -54,4 +54,9 @@ urlpatterns = [
         index_views.menu,
         name='menu'
     ),
+    path(
+        'book/availability/',
+        index_views.available_times,
+        name='available_times',
+    ),
 ]
