@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
             loadAvailableTimes();
         }
     );
-    guestsInput.addEventListener(
+    guestInput.addEventListener(
         "change",
         loadAvailableTimes
     );
