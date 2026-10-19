@@ -441,7 +441,9 @@ Github Pages - Passed
 1. Getting Bootstrap CSS to work with Django: I was using the wrong href links to make the CSS compatible with the Django framework. ie, "css/style.css" instead of 
 ``` {% raw %}{% static 'css/styles.css' %}{% endraw %}. ```
 
-2. Couldn't commit because of the first bug documented: Github uses Jekyll and it interperates the above fix as an issue in the readme file. Commenting the line and adding the ```{% raw %} and {% endraw % ``` fixed the issue.
+2. Couldn't commit because of the first bug documented: Github uses Jekyll and it interperates the above fix as an issue in the readme file. Commenting the line and adding the 
+```{% raw %} and {% endraw %} ``` 
+fixed the issue.
 
 3. Error of only 1 available time showing on the booking: The issue was incorrect indentation on these lines of code in the views.py file.
 ``` current += interval and return JsonResponse({"times": times}) ```
