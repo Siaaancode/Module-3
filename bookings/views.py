@@ -107,6 +107,18 @@ def create_booking(request):
                 "error": "Please select one of the available booking times.",
             })
 
+        # Reject booking times that have already passed today
+        if (
+            booking_date == timezone.localdate()
+            and start <= datetime.combine(
+                booking_date,
+                timezone.localtime().time().replace(tzinfo=None),
+            )
+        ):
+            return render(request, "booking_page.html", {
+                "error": "Please choose a future booking time.",
+            })
+
         # Group database operations into a transaction while checking
         # and assigning a table
         with transaction.atomic():
