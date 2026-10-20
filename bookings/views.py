@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm
 from django.contrib import messages
 from datetime import datetime, date, time, timedelta
@@ -168,12 +168,19 @@ SLOT_INTERVAL = 30 # Booking start times are 30 minutes apart
 OPENING_TIME = time(12, 0)
 CLOSING_TIME = time(22, 0)
 
-def table_is_available(table, booking_date, booking_time):
-    """Return True if the table has no bookings that overlap with the requested 
-    time slot."""
+def table_is_available(
+        table,
+        booking_date,
+        booking_time,
+        exclude_booking=None
+):
+    """Check whether a table is free for the requested time"""
 
     # Calculate the requested booking's start and end times
-    requested_start = datetime.combine(booking_date, booking_time)
+    requested_start = datetime.combine(
+        booking_date,
+        booking_time,
+    )
     requested_end = requested_start + timedelta(
         minutes=BOOKING_DURATION
     )
@@ -184,6 +191,12 @@ def table_is_available(table, booking_date, booking_time):
         booking_date=booking_date,
         status="confirmed",
     )
+
+    # Ignore the booking being edited, if applicable.
+    if exclude_booking is not None:
+        existing_bookings = existing_bookings.exclude(
+            pk=exclude_booking.pk
+        )
 
     # Compare the requested time with each existing booking
     for booking in existing_bookings:
@@ -291,3 +304,136 @@ def available_times(request):
 
     # Send the complete list back to the frontend as JSON.
     return JsonResponse({"times": times})
+
+# Offers user the ability to edit their bookings
+@login_required
+def edit_booking(request, booking_id):
+    booking = get_object_or_404(
+        Booking,
+        pk=booking_id,
+        user=request.user,
+    )
+
+    # Only confirmed bookings can be edited
+    if booking.status != "confirmed":
+        return render(request, "profile.html", {
+            "bookings": Booking.objects.filter(
+                user=request.user
+            ).order_by("booking_date", "booking_time"),
+            "today": timezone.localdate(),
+            "error": "Only confirmed bookings can be edited."
+        })
+
+    if request.method == "POST":
+        try:
+            booking_date = date.fromisoformat(
+                request.POST.get("booking_date", "")
+            )
+            booking_time = time.fromisoformat(
+                request.POST.get("booking_time", "")
+            )
+            guests = int(request.POST.get("guests", ""))
+
+            if guests < 1:
+                raise ValueError
+
+        except (TypeError, ValueError):
+            return render(request, "edit_booking.html", {
+                "booking": booking,
+                "today": timezone.localdate(),
+                "error": "Please choose a date.",
+            })
+        if booking_date < timezone.localdate():
+            return render(request, "edit_booking.html", {
+                "booking": booking,
+                "error": "Please choose today or a future date.",
+            })
+
+        start = datetime.combine(booking_date, booking_time)
+        end = start + timedelta(minutes=BOOKING_DURATION)
+        opening = datetime.combine(booking_date, OPENING_TIME)
+        closing = datetime.combine(booking_date, CLOSING_TIME)
+
+        if (
+            booking_time.minute % SLOT_INTERVAL != 0
+            or start < opening
+            or end > closing
+        ):
+            return render(request, "edit_booking.html", {
+                "booking": booking,
+                "error": "Please choose a valid available booking time.",
+            })
+
+        if (
+            booking_date == timezone.localdate()
+            and start <= timezone.localtime().replace(
+                tzinfo=None
+            )
+        ):
+            return render(request, "edit_booking.html", {
+                "booking": booking,
+                "error": "Please choose a future booking time.",
+            })
+
+        with transaction.atomic():
+            suitable_tables = list(
+                Table.objects.select_for_update().filter(
+                    is_active=True,
+                    seats__gte=guests,
+                ).order_by("seats", "table_number")
+            )
+
+            available_table = None
+
+            for candidate in suitable_tables:
+                if table_is_available(
+                    candidate,
+                    booking_date,
+                    booking_time,
+                    exclude_booking=booking,
+                ):
+                    available_table = candidate
+                    break
+
+            if available_table is None:
+                return render(request, "edit_booking.html", {
+                    "booking": booking,
+                    "error": (
+                        "Sorry, no suitable tables are available "
+                        "for that date and time."
+                    ),
+                })
+
+            booking.booking_date = booking_date
+            booking.booking_time = booking_time
+            booking.guests = guests
+            booking.table = available_table
+            booking.duration_minutes = BOOKING_DURATION
+            booking.save()
+
+        return redirect("profile")
+
+    return render(request, "edit_booking.html", {
+        "booking": booking,
+    })
+
+# Offers users the ability to cancel their bookings
+@login_required
+def cancel_booking(request, booking_id):
+    booking = get_object_or_404(
+        Booking,
+        pk=booking_id,
+        user=request.user,
+    )
+
+    if booking.status != "confirmed":
+        return redirect("profile")
+
+    if request.method == "POST":
+        booking.status = "cancelled"
+        booking.save(update_fields=["status"])
+        return redirect("profile")
+
+    return render(request, "cancel_booking.html", {
+        "booking": booking,
+    })

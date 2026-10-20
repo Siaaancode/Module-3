@@ -50,6 +50,16 @@ urlpatterns = [
         name='profile'
     ),
     path(
+        "book/<int:booking_id>/edit/",
+        index_views.edit_booking,
+        name="edit_booking",
+    ),
+    path(
+        "book/<int:booking_id>/cancel/",
+        index_views.cancel_booking,
+        name="cancel_booking",
+    ),
+    path(
         'book/', 
         index_views.create_booking, 
         name='booking_page'

@@ -1,0 +1,141 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kokoro Restaurant - Edit Booking</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- CSS Stylesheet-->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- Favicon icons -->
+
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'index' %}">Kokoro <span style="color: red;">心</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Kokoro <span style="color: red;">心</span>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url 'index' %}#about-us">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/menu/">Menu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'booking_page' %}">Book now</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'index' %}#footer-container">Contact Us</a>
+                            </li>
+                            <hr>
+
+                            {% if user.is_authenticated %}
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'profile' %}">
+                                    Welcome, {{ user.username }}
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <form method="POST" action="{% url 'logout' %}">
+                                    {% csrf_token %}
+                                    <button class="nav-link" type="submit">
+                                        Log Out
+                                    </button>
+                                </form>
+                            </li>
+
+                            {% else %}
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">
+                                    Log In
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'signup' %}">
+                                    Sign Up
+                                </a>
+                            </li>
+
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container py-5">
+        <h1>Edit Your Booking</h1>
+
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="booking_date" class="form-label">
+                    Booking date
+                </label>
+                <input type="date" id="booking_date" name="booking_date" class="form-control"
+                    value="{{ booking.booking_date|date:'Y-m-d' }}" min="{{ today|date:'Y-m-d' }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="booking_time" class="form-label">
+                    Booking time
+                </label>
+                <input type="time" id="booking_time" name="booking_time" class="form-control"
+                    value="{{ booking.booking_time|time:'H:i' }}" step="1800" required>
+                <small class="form-text">
+                    Bookings last two hours. Availability will be checked
+                    when you save your changes.
+                </small>
+            </div>
+
+            <div class="mb-3">
+                <label for="guests" class="form-label">
+                    Number of guests
+                </label>
+                <input type="number" id="guests" name="guests" class="form-control" min="1" value="{{ booking.guests }}"
+                    required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Save Changes
+            </button>
+
+            <a href="{% url 'profile' %}" class="btn btn-secondary">
+                Go Back
+            </a>
+        </form>
+    </main>
+</body>
+
+</html>

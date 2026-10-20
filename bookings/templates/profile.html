@@ -130,6 +130,16 @@
                                     <strong>Status:</strong>
                                     {{ booking.get_status_display }}
                                 </p>
+
+                                {% if booking.status == "confirmed" %}
+                                <a href="{% url 'edit_booking' booking.id %}" class="btn btn-primary btn-sm">
+                                    Edit Booking
+                                </a>
+
+                                <a href="{% url 'cancel_booking' booking.id %}" class="btn btn-danger btn-sm">
+                                    Cancel Booking
+                                </a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
