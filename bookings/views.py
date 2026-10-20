@@ -158,14 +158,10 @@ def create_booking(request):
                 status="confirmed",
             )
 
-            # Confirm the booking after it has been saved
             return redirect("profile")
 
-        # Display the booking page when it is opened without a form submission
-        return render(request, "booking_page.html")
-    
-        guests = request.POST.get("guests")
-        booking_time = request.POST.get("booking_time")
+    # Display the booking page when it is opened without a form submission
+    return render(request, "booking_page.html")
 
 # Booking rules used by the booking form and availability checker
 BOOKING_DURATION = 120 # Each booking lasts 2 hours
