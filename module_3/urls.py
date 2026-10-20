@@ -74,9 +74,4 @@ urlpatterns = [
         index_views.available_times,
         name='available_times',
     ),
-    path(
-        'available-times/',
-        index_views.available_times,
-        name='available_times'
-    ),
 ]

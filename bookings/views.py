@@ -29,6 +29,49 @@ OPENING_TIME = time(12, 0)
 CLOSING_TIME = time(22, 0)
 
 
+def validate_booking_details(booking_date, booking_time, guests):
+    """Return an error message if the booking details are invalid."""
+
+    # Ensure at least one guest has been selected.
+    if guests < 1:
+        return "Please select at least one guest."
+
+    # Prevent bookings for dates in the past.
+    if booking_date < timezone.localdate():
+        return "Please choose today or a future date."
+
+    # Calculate the booking start and end times.
+    start = datetime.combine(booking_date, booking_time)
+    end = start + timedelta(minutes=BOOKING_DURATION)
+
+    # Calculate the restaurant's opening and closing times.
+    opening = datetime.combine(booking_date, OPENING_TIME)
+    closing = datetime.combine(booking_date, CLOSING_TIME)
+
+    # Check that the time follows the booking rules.
+    if (
+        booking_time.minute % SLOT_INTERVAL != 0
+        or booking_time.second != 0
+        or booking_time.microsecond != 0
+        or start < opening
+        or end > closing
+    ):
+        return "Please select a valid booking time."
+
+    # Prevent bookings for times that have already passed today.
+    if (
+        booking_date == timezone.localdate()
+        and start <= datetime.combine(
+            booking_date,
+            timezone.localtime().time().replace(tzinfo=None),
+        )
+    ):
+        return "Please choose a future booking time."
+
+    # Return None when all the details are valid.
+    return None
+    
+
 def index(request):
     """Render the homepage."""
     return render(request, 'index.html')
@@ -121,10 +164,6 @@ def create_booking(request):
             )
             guests = int(request.POST.get("guests", ""))
 
-            # Reject bookings with fewer than one guest.
-            if guests < 1:
-                raise ValueError
-
         except (TypeError, ValueError):
             # Redisplay the form if any submitted value is missing
             # or cannot be converted into the required data type.
@@ -133,46 +172,15 @@ def create_booking(request):
                 "time and number of guests.",
             })
 
-        # Prevent customers from booking dates in the past.
-        if booking_date < timezone.localdate():
+        error = validate_booking_details(
+            booking_date,
+            booking_time,
+            guests,
+        )
+        
+        if error:
             return render(request, "booking_page.html", {
-                "error": "Please choose today or a future date.",
-            })
-
-        # Calculate the booking's start and end times using the
-        # restaurant's configured booking duration.
-        start = datetime.combine(booking_date, booking_time)
-        end = start + timedelta(minutes=BOOKING_DURATION)
-
-        # Combine the selected date with the restaurant's opening
-        # and closing times to establish the permitted booking window.
-        opening = datetime.combine(booking_date, OPENING_TIME)
-        closing = datetime.combine(booking_date, CLOSING_TIME)
-
-        # Ensure the selected time follows the required slot interval
-        # and the entire booking fits within opening hours.
-        if (
-            booking_time.minute % SLOT_INTERVAL != 0
-            or booking_time.second != 0
-            or booking_time.microsecond != 0
-            or start < opening
-            or end > closing
-        ):
-            return render(request, "booking_page.html", {
-                "error": "Please select one of the available booking times.",
-            })
-
-        # Prevent customers from selecting a time that has already
-        # passed when making a booking for the current day.
-        if (
-            booking_date == timezone.localdate()
-            and start <= datetime.combine(
-                booking_date,
-                timezone.localtime().time().replace(tzinfo=None),
-            )
-        ):
-            return render(request, "booking_page.html", {
-                "error": "Please choose a future booking time.",
+                "error": error,
             })
 
         # Group the table availability check and booking creation
@@ -205,8 +213,10 @@ def create_booking(request):
             # Stop the booking process if no suitable table is available.
             if table is None:
                 return render(request, "booking_page.html", {
-                    "error": "Sorry, that time is no longer available. "
-                    "Please choose another time.",
+                    "error": (
+                        "Sorry, that time is no longer available. "
+                        "Please choose another time."
+                    ),
                 })
 
             # Create the confirmed booking with the customer, allocated
@@ -220,8 +230,8 @@ def create_booking(request):
                 duration_minutes=BOOKING_DURATION,
                 status="confirmed",
             )
-            # Redirect the customer to their profile after booking.
-            return redirect("profile")
+        # Redirect the customer to their profile after booking.
+        return redirect("profile")
 
     # Display an empty booking page when the customer first visits it.
     return render(request, "booking_page.html")
@@ -395,51 +405,27 @@ def edit_booking(request, booking_id):
             )
             guests = int(request.POST.get("guests", ""))
 
-            if guests < 1:
-                raise ValueError
-
         except (TypeError, ValueError):
             return render(request, "edit_booking.html", {
                 "booking": booking,
                 "today": timezone.localdate(),
-                "error": "Please enter a valid date, time and "
-                "number of guests.",
+                "error": (
+                    "Please enter a valid date, time and "
+                    "number of guests."
+                ),
             })
-        if booking_date < timezone.localdate():
+
+        error = validate_booking_details(
+            booking_date,
+            booking_time,
+            guests,
+        )
+
+        if error:
             return render(request, "edit_booking.html", {
                 "booking": booking,
                 "today": timezone.localdate(),
-                "error": "Please choose today or a future date.",
-            })
-
-        start = datetime.combine(booking_date, booking_time)
-        end = start + timedelta(minutes=BOOKING_DURATION)
-        opening = datetime.combine(booking_date, OPENING_TIME)
-        closing = datetime.combine(booking_date, CLOSING_TIME)
-
-        if (
-            booking_time.minute % SLOT_INTERVAL != 0
-            or booking_time.second != 0
-            or booking_time.microsecond != 0
-            or start < opening
-            or end > closing
-        ):
-            return render(request, "edit_booking.html", {
-                "booking": booking,
-                "today": timezone.localdate(),
-                "error": "Please choose a valid available booking time.",
-            })
-
-        if (
-            booking_date == timezone.localdate()
-            and start <= timezone.localtime().replace(
-                tzinfo=None
-            )
-        ):
-            return render(request, "edit_booking.html", {
-                "booking": booking,
-                "today": timezone.localdate(),
-                "error": "Please choose a future booking time.",
+                "error": error,
             })
 
         with transaction.atomic():
@@ -462,6 +448,7 @@ def edit_booking(request, booking_id):
                     available_table = candidate
                     break
 
+            # Do not update the booking if no table is available.
             if available_table is None:
                 return render(request, "edit_booking.html", {
                     "booking": booking,
@@ -479,8 +466,10 @@ def edit_booking(request, booking_id):
             booking.duration_minutes = BOOKING_DURATION
             booking.save()
 
+        # Redirect only after the booking has been saved.
         return redirect("profile")
 
+    # Display the existing booking details on a GET request.
     return render(request, "edit_booking.html", {
         "booking": booking,
         "today": timezone.localdate(),
