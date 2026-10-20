@@ -342,7 +342,8 @@ def edit_booking(request, booking_id):
             return render(request, "edit_booking.html", {
                 "booking": booking,
                 "today": timezone.localdate(),
-                "error": "Please choose a date.",
+                "error": "Please enter a valid date, time and "
+                "number of guests.",
             })
         if booking_date < timezone.localdate():
             return render(request, "edit_booking.html", {
