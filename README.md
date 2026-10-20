@@ -448,6 +448,8 @@ fixed the issue.
 3. Error of only 1 available time showing on the booking: The issue was incorrect indentation on these lines of code in the views.py file.
 ``` current += interval and return JsonResponse({"times": times}) ```
 
+4. 
+
 
 
 ### Not Fixed
