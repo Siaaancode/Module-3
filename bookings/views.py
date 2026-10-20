@@ -147,9 +147,7 @@ def create_booking(request):
             )
 
             # Confirm the booking after it has been saved
-            return render(request, "booking_page.html", {
-                "success": "Your booking has been made successfully!",
-            })
+            return redirect("profile")
 
         # Display the booking page when it is opened without a form submission
         return render(request, "booking_page.html")
