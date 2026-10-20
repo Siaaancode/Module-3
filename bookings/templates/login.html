@@ -103,6 +103,9 @@
             </label>
             {{ form.password }}
         </div>
+        {% if form.errors %}
+        <p role="alert">Your username or password was not accepted. Please try again.</p>
+        {% endif %}
         <button type="submit" class="btn btn-primary">Log in</button>
     </form>
 
