@@ -155,11 +155,6 @@ def create_booking(request):
         guests = request.POST.get("guests")
         booking_time = request.POST.get("booking_time")
 
-        print("Number of guests:", guests)
-        print("Booking time:", booking_time)
-
-    return render(request, "booking_page.html")
-
 # Booking rules used by the booking form and availability checker
 BOOKING_DURATION = 120 # Each booking lasts 2 hours
 SLOT_INTERVAL = 30 # Booking start times are 30 minutes apart
@@ -344,6 +339,7 @@ def edit_booking(request, booking_id):
         if booking_date < timezone.localdate():
             return render(request, "edit_booking.html", {
                 "booking": booking,
+                "today": timezone.localdate(),
                 "error": "Please choose today or a future date.",
             })
 
@@ -359,6 +355,7 @@ def edit_booking(request, booking_id):
         ):
             return render(request, "edit_booking.html", {
                 "booking": booking,
+                "today": timezone.localdate(),
                 "error": "Please choose a valid available booking time.",
             })
 
@@ -370,6 +367,7 @@ def edit_booking(request, booking_id):
         ):
             return render(request, "edit_booking.html", {
                 "booking": booking,
+                "today": timezone.localdate(),
                 "error": "Please choose a future booking time.",
             })
 
@@ -396,6 +394,7 @@ def edit_booking(request, booking_id):
             if available_table is None:
                 return render(request, "edit_booking.html", {
                     "booking": booking,
+                    "today": timezone.localdate(),
                     "error": (
                         "Sorry, no suitable tables are available "
                         "for that date and time."
@@ -413,6 +412,7 @@ def edit_booking(request, booking_id):
 
     return render(request, "edit_booking.html", {
         "booking": booking,
+        "today": timezone.localdate(),
     })
 
 # Offers users the ability to cancel their bookings

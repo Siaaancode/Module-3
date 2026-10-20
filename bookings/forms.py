@@ -8,6 +8,7 @@ class SignUpForm(UserCreationForm):
     last_name = forms.CharField(max_length=30, required=True)
     email = forms.EmailField(required=True)
 
+    # Decides the information required for the sign up form
     class Meta:
         model = User
         fields = (
