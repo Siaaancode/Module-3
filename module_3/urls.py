@@ -45,6 +45,11 @@ urlpatterns = [
         name='logout'
     ),
     path(
+        'profile/',
+        index_views.profile,
+        name='profile'
+    ),
+    path(
         'book/', 
         index_views.create_booking, 
         name='booking_page'

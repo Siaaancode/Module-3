@@ -3,3 +3,4 @@
 env.py
 .env
 __pycache__/
+staticfiles/

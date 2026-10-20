@@ -42,6 +42,20 @@ def signup(request):
 
     return render(request, 'signup.html', {'form': form})
 
+# Creates a profile for users to view bookings
+@login_required
+def profile(request):
+    bookings = Booking.objects.filter(
+        user=request.user
+    ).order_by('booking_date', 'booking_time')
+
+    context = {
+        'bookings': bookings,
+        'today': timezone.localdate(),
+    }
+
+    return render(request, 'profile.html', context)
+
 # Validate the booking details and allocate an available table
 @login_required
 def create_booking(request):
