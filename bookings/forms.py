@@ -25,7 +25,7 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         """Configure the user model anbd fields displayed on the form."""
-        
+
         model = User
         fields = (
             'username',

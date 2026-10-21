@@ -1,4 +1,4 @@
-# Module-3 (INSERT PROJECT NAME HERE)
+# Module-3 Kokoro Restaurant
 
 This project is my final submission for the Module 3 unit of my Web Development course at South Staffordshire College.
 
@@ -34,7 +34,7 @@ The booking system will be presented in a simple and easy-to-understand format, 
 
 Once this information has been submitted, the user will have a limited amount of time to enter their personal details and confirm the booking. The selected time slot will be temporarily held during this process, preventing another customer from booking the same slot before the first user has completed their reservation. This will provide a better user experience by reducing the risk of double bookings and preventing customers from losing their selected time slot while entering their details.
 
-Python will be used as the main programming language to create the functionality and instructions required for the program to operate as expected.
+Python will be used as the main programming language to create the functionality and logic required for the program to operate as expected.
 
 Django will be used as the web framework for developing the application and managing the database. It will allow the system to securely store and manage important booking information, including customer reservations and available time slots for the business.
 
@@ -169,36 +169,9 @@ https://pasturerestaurant.com/
 - An automatic image slideshow on the homepage that showcases the restaurant and creates a visually engaging experience for users.
 - A clean and consistent aesthetic throughout the booking system, with a smooth and intuitive interface that makes it easy for users to navigate and complete their reservation.
 
-
 4. What could I improve?
 
 - Automatically disables dates that are fully booked, preventing users from selecting unavailable dates and making the booking process more efficient.
-
-### Website 3
-
-1. What's good?
-
--
--
--
-
-2. What's bad?
-
--
--
--
-
-3. What features could I use?
-
--
--
--
-
-4. What could I improve?
-
--
--
--
 
 ## Research Outcomes
 
@@ -312,7 +285,7 @@ Users can also visit the Menu page to explore some of the dishes available at th
 
 If users need to find information about the restaurant, they can access the Contact Us section. This will provide the restaurant's address, telephone number, email address and opening hours. The contact information will also be available in the footer across all pages, allowing users to access it easily throughout their journey.
 
-When users are ready to make a reservation, they can select the Booking option from the navigation or one of the call-to-action buttons. The booking process will allow users to select the number of guests, date and time they would like to visit. They can then enter their personal details and provide any special requests or seating preferences before confirming their reservation.
+When users are ready to make a reservation, they can select the Booking option from the navigation or one of the call-to-action buttons. Before a user can make a booking, they will be directed to the login page. If they have not signed up a button will be available for them to do so. Once the user has logged in or signed up, they are redirected back to the homepage and the book now button becomes available, this then directs them to the booking page. The booking process will allow users to select the number of guests, date and time they would like to visit. They can then enter their personal details and provide any special requests or seating preferences before confirming their reservation.
 
 Once the booking has been successfully completed, users will receive a booking confirmation containing their reservation details. This allows them to check that the information is correct and provides a reminder of their upcoming visit. Users will also be able to edit or cancel their reservation if their plans change.
 
@@ -323,18 +296,20 @@ These wireframes were created during the planning stages of my project to establ
 
 ### Home Page
 
-![Nav bar / Hero banner](/assets/images/wireframes/home_page/wireframes_home_page_navbar_and_hero_banner.png)
-![About us](/assets/images/wireframes/home_page/wireframes_about_us_section.png)
-![Contact us](/assets/images/wireframes/home_page/wireframes_contact_us_section.png)
+![Nav bar / Hero banner](/bookings/static/images/wireframes/home_page/wireframes_home_page_navbar_and_hero_banner.png)
+![About us](/bookings/static/images/wireframes/home_page/wireframes_about_us_section.png)
+![Contact us](/bookings/static/images/wireframes/home_page/wireframes_contact_us_section.png)
 
 ### Menu Page
-![Menu](/assets/images/wireframes/menu_page/wireframes_menu_page_menu_and_hero_banner.png)
+
+![Menu](/bookings/static/images/wireframes/menu_page/wireframes_menu_page_menu_and_hero_banner.png)
 
 ### Booking Page
-![Calender](/assets/images/wireframes/booking_page/wireframes_booking_section_calender.png)
-![Information section](/assets/images/wireframes/booking_page/wireframes_booking_section_additional_information.png)
-![Details](/assets/images/wireframes/booking_page/wireframes_booking_section_detail_section.png)
-![Confirmation](/assets/images/wireframes/booking_page/wireframes_booking_confirmation_page.png)
+
+![Calender](/bookings/static/images/wireframes/booking_page/wireframes_booking_section_calender.png)
+![Information section](/bookings/static/images/wireframes/booking_page/wireframes_booking_section_additional_information.png)
+![Details](/bookings/static/images/wireframes/booking_page/wireframes_booking_section_detail_section.png)
+![Confirmation](/bookings/static/images/wireframes/booking_page/wireframes_booking_confirmation_page.png)
 
 
 ## Page layout and Interface elements
@@ -374,16 +349,45 @@ For the typography I have chosen GoogleFont' Work Sans (https://fonts.google.com
 - GitHub, Code hosting and project management.
 - W3C, Markup and CSS validator.
 - JSLint, Javascript validator.
+- Jest, Javascript testing.
 - DevTools, Inspect and Lighthouse.
 - WebAIM, Colour contrast checker.
 - Favic-o-matic, Favicon generator.
 - GoogleFonts, Custom Fonts.
-- localStorage API
 - Python, Backend functionality and application logic.
 - Heroku, Deploy and host the website online.
 - Django, Python framework.
+- FullCalendar, Javascript event calendar library.
+- Neon, cloud-hosted PostgreSQL database
+- WhiteNoise, Static file serving.
+- Gunicorn, WSGI application server for Django
+
+# Database SCHEMA
+## Talk about SCHEMA
+
+## Entity Relationship Overview
+
+1. User Model
+
+2. Table Model
+
+3. Booking Model
+
+### Booking Status Choices
+
+### Data Integrity and Booking Availability
+
+
 
 # Manual/Automated Testing
+
+## Jest (Javascript testing)
+
+### SCREENSHOTS OF TESTS PASSING
+
+## Automated testing using Django's built-in testing framework
+
+### List of tests I've done and screenshots of passing
 
 # Testing
 ## W3C Validators (HTML and CSS)
@@ -414,9 +418,11 @@ Github Pages - Passed
 ## Test Checklist:
 ### User Journey: (BY FUNCTION)
 
-# Deployment - GitHub Pages
+# Deployment
 
-## How to run this project locally
+## GitHub Pages Deployment
+
+### How to run this project locally
 
 - First, go to the GitHub Repository for https://github.com/Siaaancode/Module-3
 - Click the deployments link, find the most recent deployment and click that, which will open a tab containing the deployed site.
@@ -424,7 +430,7 @@ Github Pages - Passed
 - Open the project folder within the IDE, open the preview option on one of the HTML files in a browser.
 
 
-## Steps to deploy this website
+### Steps to deploy this website
 
 - Open GitHub, log in/sign up and create a repository.
 - Open the terminal in the IDE and link it to your GitHub account. 
@@ -433,6 +439,30 @@ Github Pages - Passed
 - Go back to GitHub and click the settings button, then the pages option.
 - Ensure the Source is set to 'Deploy from a branch' and Branch is set to 'main' and '/(root)'
 - Once completed, a link at the top of that page will become available. Simply click it, and it will open a new tab of the deployed site. (https://github.com/Siaaancode/Module-3)
+
+## Heroku Deployment
+
+### How to deploy on Heroku
+
+The Kokoro restaurant booking system is deployed using Heroku. The application uses Django for the backend, Neon for the PostgreSQL database, and WhiteNoise to serve static files.
+
+To deploy the application, follow these steps:
+
+1. Prepare the project: Ensure the Django application runs locally and that the required dependencies are listed in requirements.txt.
+
+2. Configure the Python version: Create a .python-version file in the project root and specify the Python version used by the application.
+
+3. Configure the application server: Create a Procfile in the project root to tell Heroku how to start the Django application using Gunicorn.
+
+4. Configure environment variables: Set the required environment variables in Heroku, including the database connection string and Django secret key. Keep sensitive credentials out of the Git repository.
+
+5. Configure static files: Configure Django's static file settings and WhiteNoise so that CSS, JavaScript and other static assets can be served in production.
+
+6. Set up the database: Configure the application to connect to the Neon PostgreSQL database and apply any outstanding database migrations.
+
+7. Deploy the application: Commit the project changes to Git and push the code to the Heroku deployment branch, or trigger a deployment through the connected GitHub repository.
+
+8. Verify the deployment: Open the deployed website and test the main functionality, including account registration, login, booking creation, booking editing, cancellation and static file loading.
 
 ## Bugs Discovered
 
@@ -448,19 +478,48 @@ fixed the issue.
 3. Error of only 1 available time showing on the booking: The issue was incorrect indentation on these lines of code in the views.py file.
 ``` current += interval and return JsonResponse({"times": times}) ```
 
-4. 
+4. Exposure of secret key:
 
+5. Exposure of DATABASE_URL:
 
 
 ### Not Fixed
 
 
 # Project Evaluation
+
+## Evaluation of project goals
+
+1. Develop a functional and reliable booking system that prioritises a positive user experience, ease of use, and efficiency, while making the booking process simple and straightforward for both businesses and their customers. 
+
+- Did I achieve the goals?
+- Did the goals change?
+
+2. Develop an intuitive interface that allows customers to quickly and easily make reservations while selecting their preferred booking requirements, including the date, time, and number of guests.
+
+- Did I achieve the goals?
+- Did the goals change?
+
+3. Design an intuitive and accessible user interface that prioritises simplicity, clean design, and ease of use, ensuring the application is easy to navigate for users of all experience levels.
+
+- Did I achieve the goals?
+- Did the goals change?
+
 ## Final screenshots of finished website
 
 # Credits
+
 ## Content
+### VSCode
+
+Generated content by VSCode:
+1. Content in the about us section
+2. Menu items
+
 ## Media
+### ChatGPT
+
+All images on the homepage carousel were generated by ChatGPT.
 
 ## Code
 ### ChatGPT
@@ -469,7 +528,6 @@ I used ChatGPT to understand how I could extend the requirements for the sign up
 
 I created a form.py file to add this information:
 
-"""
 
     from django import forms
     from django.contrib.auth.forms import UserCreationForm

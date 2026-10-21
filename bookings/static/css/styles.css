@@ -79,6 +79,7 @@ header {
 }
 
 /* Menu */
+
 #menu {
     padding: 10px 20px;
 }
@@ -123,7 +124,7 @@ h3 {
     padding: 20px;
 }
 
-/* Highlight the date selected for the booking. */
+/* Highlight the date selected for the booking calendar. */
 #calendar .selected-date-cell {
     background-color: red;
     color: white;
@@ -135,4 +136,14 @@ h3 {
     --fc-monarch-tertiary-foreground: inverted;
     --fc-monarch-tertiary-over: transparent;
     --fc-monarch-tertiary-down: transparent;
+}
+
+/*Media query: Laptops and larger (992px and up)*/
+@media screen and (min-width: 992px) {
+
+    /* Navigation bar */
+    header .navbar .navbar-nav a.nav-link {
+        color: #ffffff !important;
+    }
+
 }
