@@ -30,7 +30,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
+                    role="dialog" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Kokoro <span style="color: red;">心</span>
                         </h5>
@@ -50,7 +50,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'index' %}#footer-container">Contact Us</a>
                             </li>
-                            <hr>
+                            <hr class="dropdown_divider">
 
                             {% if user.is_authenticated %}
 
@@ -92,44 +92,46 @@
     </header>
 
     <main class="booking-container">
-        <h1>Book a Table at Kokoro</h1>
-        <p>Please select your preferred booking date.</p>
+        <div id="booking-information">
+            <h1>Book a Table at Kokoro</h1>
+            <p>Please select your preferred booking date.</p>
+
+            <!-- Selected date -->
+            <p id="selected-date" aria-live="polite"> No date selected yet. </p>
+
+            <form method="POST" action="{% url 'booking_page' %}">
+                {% csrf_token %}
+
+                <input type="hidden" id="booking_date" name="booking_date" required>
+                <div class="booking-field"> <label for="guests"> Number of guests </label>
+                    <select id="guests" name="guests" required>
+                        <option value="">Select guests</option>
+                        <option value="1">1 guest</option>
+                        <option value="2" selected>2 guests</option>
+                        <option value="3">3 guests</option>
+                        <option value="4">4 guests</option>
+                        <option value="5">5 guests</option>
+                        <option value="6">6 guests</option>
+                    </select>
+                </div>
+                <label for="booking_time">Available booking times</label>
+                <select id="booking_time" name="booking_time" required disabled>
+                    <option value="">Select a date first</option>
+                </select>
+
+                {% if error %}
+                <p role="alert">{{ error }}</p>
+                {% endif %}
+
+                {% if success %}
+                <p role="status">{{ success }}</p>
+                {% endif %}
+                <button type="submit">Continue</button>
+            </form>
+        </div>
 
         <!-- Calendar -->
         <div id="calendar"></div>
-
-        <!-- Selected date -->
-        <p id="selected-date" aria-live="polite"> No date selected yet. </p>
-
-        <form method="POST" action="{% url 'booking_page' %}">
-            {% csrf_token %}
-
-            <input type="hidden" id="booking_date" name="booking_date" required>
-            <div class="booking-field"> <label for="guests"> Number of guests </label>
-                <select id="guests" name="guests" required>
-                    <option value="">Select guests</option>
-                    <option value="1">1 guest</option>
-                    <option value="2" selected>2 guests</option>
-                    <option value="3">3 guests</option>
-                    <option value="4">4 guests</option>
-                    <option value="5">5 guests</option>
-                    <option value="6">6 guests</option>
-                </select>
-            </div>
-            <label for="booking_time">Available booking times</label>
-            <select id="booking_time" name="booking_time" required disabled>
-                <option value="">Select a date first</option>
-            </select>
-
-            {% if error %}
-            <p role="alert">{{ error }}</p>
-            {% endif %}
-
-            {% if success %}
-            <p role="status">{{ success }}</p>
-            {% endif %}
-            <button type="submit">Continue</button>
-        </form>
 
     </main>
 

@@ -118,9 +118,23 @@ h3 {
 }
 
 /* Booking page */
+
+#booking-information {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#booking-field {
+    margin: 20px;
+}
+
+#booking_time {
+    margin: 20px;
+}
+
 #calendar {
     max-width: 1000px;
-    margin: 100px auto 40px;
+    margin: 20px auto 40px;
     padding: 20px;
 }
 
@@ -142,7 +156,8 @@ h3 {
 @media screen and (min-width: 992px) {
 
     /* Navigation bar */
-    header .navbar .navbar-nav a.nav-link {
+    header .navbar .navbar-nav a.nav-link,
+    button {
         color: #ffffff !important;
     }
 

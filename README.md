@@ -2,12 +2,13 @@
 
 This project is my final submission for the Module 3 unit of my Web Development course at South Staffordshire College.
 
-Links to GitHub profile and site:
+Links to GitHub profile and site and Heroku:
 
+[GitHub Profile](https://github.com/Siaaancode/Module-3)
 (INSERT LINKS HERE)
 (INSERT LINKS HERE)
 
-(IMAGE OF MAIN PAGE HERE)
+![Nav bar / Hero banner](/bookings/static/images/home_page_readme/home_page_readme_image.png)
 
 ## Table of Contents
 
@@ -296,28 +297,88 @@ These wireframes were created during the planning stages of my project to establ
 
 ### Home Page
 
+The home page will be designed with a clean, minimalist aesthetic, using a limited colour palette and concise content to create a professional and welcoming first impression. The layout will aim to avoid unnecessary clutter, allowing users to identify key information and navigate the website easily.
+
+The navigation bar will feature a minimal selection of links to provide straightforward access to the main sections of the website, including the menu, booking system, restaurant information and contact details. This approach will aim to keep navigation simple and ensure users can find the features they need without unnecessary complexity.
+
+The hero banner is planned to include a carousel of AI-generated images showcasing the restaurant's atmosphere, dining experience and kitchen. The carousel will automatically rotate through the images, adding visual interest while helping users develop an impression of the restaurant before making a booking.
+
+The About Us and Contact sections will be included to provide essential restaurant information and explain what customers can expect from their visit. These sections will aim to make important details easy to find while helping users become familiar with the restaurant.
+
+Overall, the wireframe will focus on establishing a clear visual hierarchy, maintaining consistency and providing an accessible, user-friendly starting point for visitors to the website.
+
 ![Nav bar / Hero banner](/bookings/static/images/wireframes/home_page/wireframes_home_page_navbar_and_hero_banner.png)
 ![About us](/bookings/static/images/wireframes/home_page/wireframes_about_us_section.png)
 ![Contact us](/bookings/static/images/wireframes/home_page/wireframes_contact_us_section.png)
 
 ### Menu Page
 
+The menu page will be designed to present the restaurant's food offerings in a clear and organised layout, allowing customers to browse the available dishes easily. The design will follow the same minimalist aesthetic and colour palette planned for the home page to maintain visual consistency throughout the website.
+
+The menu will be organised into clearly defined sections, with headings to distinguish between different food categories. This structure will aim to make dishes easy to locate while avoiding an overcrowded layout. The wireframe will focus on arranging the content in a logical order, ensuring that users can browse the menu without feeling overwhelmed.
+
+The page will aim to give customers a convenient way to explore the restaurant's offerings before making a reservation. By prioritising readability, simple navigation and a consistent design, the proposed layout will support an accessible and user-friendly experience.
+
 ![Menu](/bookings/static/images/wireframes/menu_page/wireframes_menu_page_menu_and_hero_banner.png)
 
 ### Booking Page
+
+The booking page will be designed to provide customers with a simple and intuitive way to reserve a table at the restaurant. The layout will aim to maintain consistency with the rest of the website, using clear labels, a straightforward structure and an uncluttered design to make the booking process easy to understand.
+
+An interactive calendar, planned to be powered by FullCalendar, will allow customers to select their preferred booking date visually. The page will also include input fields for the number of guests and an available booking time, helping customers find a suitable reservation based on their party size and the restaurant's availability.
+
+The booking system will be designed to check table availability and prevent overlapping reservations, reducing the risk of overbooking. Clear feedback will be provided if a selected date, time or party size cannot be accommodated. Customers will also be able to access their profile to view, edit or cancel existing reservations.
+
+Overall, the wireframe will prioritise usability, clear communication and efficient booking management. The aim will be to create a straightforward booking experience for customers while supporting restaurant staff in managing table availability.
 
 ![Calender](/bookings/static/images/wireframes/booking_page/wireframes_booking_section_calender.png)
 ![Information section](/bookings/static/images/wireframes/booking_page/wireframes_booking_section_additional_information.png)
 ![Details](/bookings/static/images/wireframes/booking_page/wireframes_booking_section_detail_section.png)
 ![Confirmation](/bookings/static/images/wireframes/booking_page/wireframes_booking_confirmation_page.png)
 
+### Error 404 page
+
+The 404 error page wireframe was intentionally kept simple, as its primary purpose is to clearly communicate that the requested page could not be found while providing users with a straightforward way to navigate back to the home page. The minimal layout helps keep the message clear and avoids unnecessary distractions during the error experience.
+
+![Error404](/bookings/static/images/wireframes/error_404/wireframe_404_page.png)
+
 
 ## Page layout and Interface elements
-### (INSERT DIFFERENT PAGE ELEMENTS HERE) 
-### (INSERT DIFFERENT PAGE ELEMENTS HERE)
-### (INSERT DIFFERENT PAGE ELEMENTS HERE)
-### (INSERT DIFFERENT PAGE ELEMENTS HERE)
-### (INSERT DIFFERENT PAGE ELEMENTS HERE)
+
+### Homepage
+
+#### Navigation Bar
+
+#### Hero Banner
+
+#### About Us Section
+
+#### Contact Us
+
+#### Footer
+
+
+### Menu page
+
+
+### Login page
+
+
+### Sign up page
+
+
+### Booking page
+
+
+### User Profile
+
+#### Edit booking
+
+#### Cancel booking
+
+
+### Error 404 page
+
 
 ## Responsiveness
 
@@ -334,7 +395,7 @@ The design choices made throughout this project were intended to create a clean,
 
 White - #FFFFFF
 Black - #000000
-Flag Red - #CC2020
+Red - #ff0000
 
 ## Typography
 
@@ -492,13 +553,7 @@ fixed the issue.
 
 1. Develop a functional and reliable booking system that prioritises a positive user experience, ease of use, and efficiency, while making the booking process simple and straightforward for both businesses and their customers. 
 
-- Did I achieve the goals?
-- Did the goals change?
-
 2. Develop an intuitive interface that allows customers to quickly and easily make reservations while selecting their preferred booking requirements, including the date, time, and number of guests.
-
-- Did I achieve the goals?
-- Did the goals change?
 
 3. Design an intuitive and accessible user interface that prioritises simplicity, clean design, and ease of use, ensuring the application is easy to navigate for users of all experience levels.
 
@@ -549,8 +604,3 @@ I created a form.py file to add this information:
             'password1',
             'password2',
         )
-
-
-
-# TO BE DELETED ONCE COMPLETED
-## REVIEW USER STORIES AND RE-PRIORITISE THEM
