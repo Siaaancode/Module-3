@@ -472,7 +472,43 @@ For the typography I have chosen GoogleFont' Work Sans (https://fonts.google.com
 ## Final checks
 
 W3C HTML validator - Passed
+
+Homepage
+
+![Homepage](/bookings/static/images/html_w3c_validator/heroku_w3c_html_validator_home_page.png)
+
+Menu page
+
+![Menu page](/bookings/static/images/html_w3c_validator/heroku_w3c_html_validator_menu_page.png)
+
+Login page
+
+![Login page](/bookings/static/images/html_w3c_validator/heroku_w3c_html_validator_log_in_page.png)
+
+Sign up page
+
+![Sign up page](/bookings/static/images/html_w3c_validator/heroku_w3c_html_validator_sign_up_page.png)
+
+Profile page
+
+![Profile page](/bookings/static/images/html_w3c_validator/heroku_w3c_html_validator_profile_page.png)
+
+Booking page
+
+![Booking page](/bookings/static/images/html_w3c_validator/heroku_w3c_html_validator_booking_page.png)
+
+Edit booking page
+
+![Edit booking page](/bookings/static/images/html_w3c_validator/heroku_w3c_html_validator_edit_booking_page.png)
+
+Cancel booking page
+
+![Cancel booking page](/bookings/static/images/html_w3c_validator/heroku_w3c_html_validator_cancel_booking_page.png)
+
 W3C CSS validator - Passed
+
+![styles.css](/bookings/static/images/css_w3c_validator/css_w3c_validator_styles.png)
+
 DevTools Lighthouse - Passed
 Github Pages - Passed
 
