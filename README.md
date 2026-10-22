@@ -424,21 +424,104 @@ For the typography I have chosen GoogleFont' Work Sans (https://fonts.google.com
 - Gunicorn, WSGI application server for Django
 
 # Database SCHEMA
-## Talk about SCHEMA
+
+The Kokoro restaurant booking system uses a relational database to store and manage customer accounts, restaurant tables and bookings. The database is managed through Django's Object-Relational Mapper (ORM), which allows the application to create, retrieve, update and manage records using Python models.
+
+The database consists of three main entities: User, Table and Booking. These entities are connected through relationships that help organise booking information, associate reservations with customers and allocate tables according to their seating capacity.
 
 ## Entity Relationship Overview
 
+The database contains the following models:
+
+User Model – Stores customer account information using Django's built-in authentication system.
+Table Model – Stores information about the restaurant's tables, including their seating capacity and active status.
+Booking Model – Stores reservation details and links each booking to a customer and, where applicable, an allocated table.
+
+The relationships between these entities are:
+
+User to Booking: One user can have multiple bookings, but each booking belongs to one user. This is a one-to-many relationship.
+Table to Booking: One table can be associated with multiple bookings over time, but each booking can be allocated to one table. This is also a one-to-many relationship.
+
+These relationships reduce unnecessary duplication of data and allow the application to retrieve related information efficiently.
+
 1. User Model
+
+The User model uses Django's built-in authentication model to manage customer accounts and authentication.
+
+| Field | Description |
+| --- | --- |
+| id | Automatically generated primary key that uniquely identifies each user |
+| username | The username used to identify the account. |
+| password | Stores a securely hashed password through Django's authentication system. |
+| first_name | Stores the user's first name when provided. |
+| last_name | Stores the user's surname when provided. |
+| email | Stores the user's email address when provided. |
+
+The Booking model has a foreign key relationship with User. This associates each reservation with the customer who created it and allows customers to view and manage their own bookings.
 
 2. Table Model
 
+The Table model represents the tables available in the restaurant. It allows the application to consider seating capacity and whether a table is active when allocating reservations.
+
+| Field | Description |
+| --- | --- |
+| id | Automatically generated primary key that uniquely identifies each table record. |
+| table_number | A unique number identifying the restaurant table. |
+| seats | The maximum number of guests the table can accommodate. |
+| is_active | A Boolean field indicating whether the table is available for allocation within the booking system. |
+
+The table_number field must be unique, preventing two table records from having the same table number. The seats field allows the application to select tables with sufficient capacity for the requested party size.
+
+The is_active field allows tables to be excluded from new bookings when they are not in service. The Table model is connected to the Booking model through a foreign key relationship.
+
 3. Booking Model
+
+The Booking model stores the details of restaurant reservations and connects customers with their allocated tables.
+
+| Field | Description |
+| --- | --- |
+| id | Automatically generated primary key that uniquely identifies each booking. |
+| user | A foreign key linking the booking to the customer who created it. |
+| table | An optional foreign key linking the booking to an allocated restaurant table. |
+| booking_date | The date of the reservation. |
+| booking_time | The requested start time of the reservation. |
+| guests | The number of guests included in the booking. |
+| duration_minutes | The expected duration of the reservation in minutes. |
+| status | Records the current status of the booking. |
+
+The user foreign key uses on_delete=models.CASCADE, meaning that deleting a user also deletes their associated booking records. The table foreign key uses on_delete=models.PROTECT, preventing a table from being deleted while booking records still reference it. The table relationship is optional at database level, allowing a booking record to exist without an allocated table where necessary.
+
+The booking date and time fields can also be empty at database level. The application is responsible for validating the booking details before accepting a reservation.
 
 ### Booking Status Choices
 
+The Booking model uses predefined status choices to represent the state of a reservation.
+
+| Status | Description |
+| --- | --- |
+| confirmed | The reservation has been confirmed. |
+| cancelled | The reservation has been cancelled and should no longer prevent the table from being booked. |
+| completed | The reservation has been completed. |
+
+Using predefined choices helps maintain consistent status values throughout the application. Cancelling a booking changes its status rather than immediately deleting the record, preserving a record of the reservation.
+
 ### Data Integrity and Booking Availability
 
+The application uses database relationships and validation logic to help maintain the integrity of booking records and reduce the risk of double bookings.
 
+- Table identification: Each table has a unique table number.
+- Seating capacity: The application considers the number of guests when selecting a suitable table.
+- Active tables: Only tables marked as active are considered for new reservations.
+- Booking conflicts: The application checks whether a table already has a booking that overlaps with the requested reservation period.
+- Booking duration: Reservations use a default duration of 120 minutes to calculate when a table becomes available again.
+- Opening hours: The application validates booking times against its configured opening hours, from 12:00 to 22:00.
+- Date and time validation: The application checks that the requested reservation meets its date and time requirements.
+- Cancellation handling: Cancelled bookings are excluded from availability checks so that their tables can become available for future reservations.
+- Customer ownership: Customers can manage their own bookings, while the application checks booking ownership when editing or cancelling reservations.
+
+The application uses Django's database transactions when creating bookings to help ensure that the allocation process is handled as a single unit of work. Availability checks and table allocation logic are intended to prevent overlapping reservations for the same table.
+
+Together, these models and validation rules provide the foundation for managing customer reservations, allocating restaurant tables and maintaining consistent booking information.
 
 # Manual/Automated Testing
 
@@ -452,24 +535,6 @@ For the typography I have chosen GoogleFont' Work Sans (https://fonts.google.com
 
 # Testing
 ## W3C Validators (HTML and CSS)
-
-(INSERT IMAGE EXAMPLES OF PASSES)
-(INSERT IMAGE EXAMPLES OF PASSES)
-(INSERT IMAGE EXAMPLES OF PASSES)
-
-## DevTools
-### Lighthouse
-
-(INSERT IMAGE EXAMPLES OF PASSES)
-(INSERT IMAGE EXAMPLES OF PASSES)
-(INSERT IMAGE EXAMPLES OF PASSES)
-
-## Testing User Stories
-### Tested Scenario - Expected Result
-### Actual Result
-
-## Testing evaluation
-## Final checks
 
 W3C HTML validator - Passed
 
@@ -509,8 +574,49 @@ W3C CSS validator - Passed
 
 ![styles.css](/bookings/static/images/css_w3c_validator/css_w3c_validator_styles.png)
 
+## DevTools
+### Lighthouse
+
 DevTools Lighthouse - Passed
-Github Pages - Passed
+
+Homepage
+
+![Home page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_home_page.png)
+
+Menu page
+
+![Menu page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_menu_page.png)
+
+Login page
+
+![Login page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_login_page.png)
+
+Sign up page
+
+![Sign up page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_sign_up_page.png)
+
+Profile page
+
+![Profile page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_profile_page.png)
+
+Booking page
+
+![Booking page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_booking_page.png)
+
+Edit booking page
+
+![Edit booking page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_edit_booking_page.png)
+
+Cancel booking page
+
+![Cancel booking page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_cancel_booking_page.png)
+
+## Testing User Stories
+### Tested Scenario - Expected Result
+### Actual Result
+
+## Testing evaluation
+## Final checks
 
 ## Test Checklist:
 ### User Journey: (BY FUNCTION)
