@@ -2,11 +2,11 @@
 
 This project is my final submission for the Module 3 unit of my Web Development course at South Staffordshire College.
 
-Links to GitHub profile and site and Heroku:
+Links to GitHub profile and Heroku:
 
 [GitHub Profile](https://github.com/Siaaancode/Module-3)
-(INSERT LINKS HERE)
-(INSERT LINKS HERE)
+
+[Heroku](https://japanese-booking-app-2b74f6388c10.herokuapp.com/)
 
 ![Nav bar / Hero banner](/bookings/static/images/home_page_readme/home_page_readme_image.png)
 
@@ -401,7 +401,7 @@ Red - #ff0000
 
 For the typography I have chosen GoogleFont' Work Sans (https://fonts.google.com/specimen/Work+Sans?previewlayout=grid&lang=en_Latn&preview.script=Latn&preview.lang=en_Latn). For a secondary font, I will be using monospace as a backup in case the google font fails to load.
 
-# Technologies used (EDIT THESE SO APPROPRIATE)
+# Technologies used
 
 - HTML, Structure of the website.
 - CSS, Styling and layout.
