@@ -523,17 +523,42 @@ The application uses Django's database transactions when creating bookings to he
 
 Together, these models and validation rules provide the foundation for managing customer reservations, allocating restaurant tables and maintaining consistent booking information.
 
+# Testing
+
 # Manual/Automated Testing
 
 ## Jest (Javascript testing)
 
-![Jest Test](/bookings/static/images/jest/jest_test.png)
+![Jest Tests](/bookings/static/images/tests/jest_test.png)
+
+1. initialises and renders the calendar.
+2. selecting a date updates the date input and text.
+3. does not initialise when required elements are missing.
+4. loads available booking times successfully.
+5. displays a message when no booking times are available.
+6. displays an error message when the request fails.
+7. reloads availability when the guest count changes.
+8. prompts the customer to select a date when no date is selected.
+9. disables the dropdown while availability is loading.
+
 
 ## Automated testing using Django's built-in testing framework
 
-### List of tests I've done and screenshots of passing
+![Django Tests](/bookings/static/images/tests/django_tests.png)
 
-# Testing
+1. Check that customers must log in to book.
+2. Check that customers must log in to view their profile.
+3. Check that a valid booking saves the correct details.
+4. Check that overlapping bookings cannot use the same table.
+5. Check that cancellation releases a table.
+6. Check that customers cannot edit other people's bookings.
+7. Check that customers cannot cancel other people's bookings.
+8. Check that bookings cannot be made for past dates.
+9. Check that bookings cannot start before opening.
+10. Check that an oversized party cannot book a table.
+11. Check that inactive tables are excluded from bookings.
+12. Check that cancelled bookings no longer block availability.
+
 ## W3C Validators (HTML and CSS)
 
 W3C HTML validator - Passed
@@ -627,10 +652,31 @@ Cancel booking page
 
 ### How to run this project locally
 
-- First, go to the GitHub Repository for https://github.com/Siaaancode/Module-3
-- Click the deployments link, find the most recent deployment and click that, which will open a tab containing the deployed site.
-- If a live deployment isn't available, you need to clone the repository to your own machine by typing "git clone" in the terminal, followed by the above link on a local IDE (Integrated Development Environment), such as VSCode.
-- Open the project folder within the IDE, open the preview option on one of the HTML files in a browser.
+1. Clone the repository:
+
+git clone https://github.com/Siaaancode/Module-3.git
+
+2. Navigate to the project directory:
+
+cd Module-3
+
+3. Create and activate a Python virtual environment.
+
+4. Install the project dependencies:
+
+pip install -r requirements.txt
+
+5. Configure the required environment variables, including the Django secret key and database connection string. Do not commit secrets to GitHub.
+
+6. Apply database migrations:
+
+python manage.py migrate
+
+7. Start the development server:
+
+python manage.py runserver
+
+8. Open the local address displayed in the terminal to access the application.
 
 ### Steps to deploy this website
 

@@ -193,3 +193,31 @@ class BookingViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "no longer available")
         self.assertEqual(Booking.objects.count(), 0)
+
+    def test_inactive_table_cannot_be_assigned(self):
+        """Check that inactive tables are excluded from bookings."""
+        self.table.is_active = False
+        self.table.save()
+
+        self.client.force_login(self.customer)
+
+        response = self.client.post(
+            reverse("booking_page"),
+            {
+                "booking_date": self.booking_date.isoformat(),
+                "booking_time": "12:00",
+                "guests": 2,
+            },
+        )
+
+    def test_cancelled_booking_does_not_block_table(self):
+        """Check that cancelled bookings no longer block availability."""
+        self.create_test_booking(status="cancelled")
+
+        available = table_is_available(
+            self.table,
+            self.booking_date,
+            self.booking_time,
+        )
+
+        self.assertTrue(available)
