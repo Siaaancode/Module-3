@@ -527,7 +527,7 @@ Together, these models and validation rules provide the foundation for managing 
 
 ## Jest (Javascript testing)
 
-### SCREENSHOTS OF TESTS PASSING
+![Jest Test](/bookings/static/images/jest/jest_test.png)
 
 ## Automated testing using Django's built-in testing framework
 
@@ -632,7 +632,6 @@ Cancel booking page
 - If a live deployment isn't available, you need to clone the repository to your own machine by typing "git clone" in the terminal, followed by the above link on a local IDE (Integrated Development Environment), such as VSCode.
 - Open the project folder within the IDE, open the preview option on one of the HTML files in a browser.
 
-
 ### Steps to deploy this website
 
 - Open GitHub, log in/sign up and create a repository.
@@ -669,6 +668,8 @@ To deploy the application, follow these steps:
 
 ## Bugs Discovered
 
+During development of the Kokoro restaurant booking system, several issues were identified and resolved:
+
 ### Fixed
 
 1. Getting Bootstrap CSS to work with Django: I was using the wrong href links to make the CSS compatible with the Django framework. ie, "css/style.css" instead of 
@@ -681,10 +682,15 @@ fixed the issue.
 3. Error of only 1 available time showing on the booking: The issue was incorrect indentation on these lines of code in the views.py file.
 ``` current += interval and return JsonResponse({"times": times}) ```
 
-4. Exposure of secret key:
+4. Exposure of secret key: Fixed by improving the management by moving the Django secret key into environment variables and addressing it exposure in a public repository.
 
-5. Exposure of DATABASE_URL:
+5. Fixed URL routing: Corrected navigation links and Django URL patterns that caused the sign up and menu page to return 404 errors.
 
+6. Static file issues: Invetigated and fixed CSS and Javascript loading issues affecting development and deployment.
+
+7. Invalid required attribute on a hidden input: Identified that required cannot be used on the hidden booking_date input and removed it.
+
+8. FullCalendar's default purple styling: Used DevTools to identify where the styling was located and adjusted accordingly to allow personalised styling.
 
 ### Not Fixed
 
@@ -693,18 +699,41 @@ fixed the issue.
 
 ## Evaluation of project goals
 
-1. Develop a functional and reliable booking system that prioritises a positive user experience, ease of use, and efficiency, while making the booking process simple and straightforward for both businesses and their customers. 
+1. Develop a functional and reliable booking system that prioritises a positive user experience, ease of use, and efficiency, while making the booking process simple and straightforward for both businesses and their customers.
+
+I made good progress towards achieving this goal by developing a booking system that allows customers to create, view, edit and cancel reservations. I implemented table allocation based on guest numbers and table capacity, alongside checks to prevent overlapping bookings and validate booking dates and times. I also developed automated tests to check important booking functionality. These features help make the system more reliable and efficient for both customers and restaurant staff.
 
 2. Develop an intuitive interface that allows customers to quickly and easily make reservations while selecting their preferred booking requirements, including the date, time, and number of guests.
 
+I achieved this goal by integrating FullCalendar into the booking page, allowing customers to select a reservation date through a visual calendar. I also implemented booking fields for the number of guests and booking time, with availability checks to help customers choose suitable reservation options. The system provides a structured booking process, although further usability testing would help identify any areas that could be made clearer or more efficient.
+
 3. Design an intuitive and accessible user interface that prioritises simplicity, clean design, and ease of use, ensuring the application is easy to navigate for users of all experience levels.
 
-- Did I achieve the goals?
-- Did the goals change?
+I worked towards this goal by creating a clean, minimalist interface using Bootstrap and custom CSS. I developed consistent navigation and styling across the website and used clear page layouts to make the main features easier to find. I also addressed HTML validation issues and refined the calendar's appearance. Further accessibility testing, particularly keyboard navigation, form labels, colour contrast and screen-reader compatibility, would help ensure the application is accessible to a wider range of users.
+
+Overall, I believe I achieved the main aims of the project by building the core functionality of a restaurant booking system and creating a straightforward interface. However, there is still scope to improve the user experience through additional testing and refinement.
+
+## Did the goals change?
+
+The main goals remained consistent throughout development, as the focus was always on creating a reliable booking system with a simple and accessible user interface. However, my understanding of what was required to achieve these goals developed as the project progressed.
+
+Initially, I focused on creating the booking form and allowing customers to select their preferred date and time. As development continued, I recognised the importance of managing table capacity, checking booking conflicts, validating customer input and allowing customers to manage existing reservations. These additional requirements helped turn the initial concept into a more complete booking system.
+
+Although the original goals did not fundamentally change, the project evolved to include more detailed technical requirements and a stronger focus on reliability, security and maintainability.
 
 ## Final screenshots of finished website
 
 # Credits
+
+## Frameworks and Libraries
+
+- Django – Used as the Python web framework for routing, database management, authentication and booking functionality.
+- Bootstrap – Used to create a responsive layout, navigation bar, forms and other interface components.
+- FullCalendar – Used to implement the interactive booking calendar and date selection.
+- Google Fonts – Used to provide the Work Sans typeface.
+- PostgreSQL – Used as the relational database for storing customer, table and booking information.
+- Jest – Used to test JavaScript functionality, including booking calendar behaviour.
+- ChatGPT: Helping fix issues and offering suggestions for improvements on features and validation.
 
 ## Content
 ### VSCode
@@ -714,35 +743,22 @@ Generated content by VSCode:
 2. Menu items
 
 ## Media
-### ChatGPT
 
-All images on the homepage carousel were generated by ChatGPT.
+ChatGPT: All images on the homepage carousel were generated by ChatGPT.
 
 ## Code
 ### ChatGPT
 
-I used ChatGPT to understand how I could extend the requirements for the sign up form. Django offered simple requirements, but I wanted additional elements, like firstname, surname and email.
+ChatGPT has been a valuable tool throughout the development of this project. It has assisted with writing and debugging code, troubleshooting technical issues, and understanding key programming concepts. This support has helped me expand my technical knowledge, strengthen my problem-solving skills, and develop greater confidence in applying what I have learned throughout the project.
 
-I created a form.py file to add this information:
+1. JavaScript and FullCalendar: Assisted with implementing the interactive booking calendar, handling date selection, updating the hidden booking-date input, fetching available times from the Django endpoint and displaying availability information.
 
+2. Booking validation and availability: Helped implement validation for booking dates, times and guest numbers, opening hours, table capacity and overlapping reservations. Assistance also covered selecting suitable tables and calculating availability using booking durations and time slots.
 
-    from django import forms
-    from django.contrib.auth.forms import UserCreationForm
-    from django.contrib.auth.models import User
+3. Booking functionality: Assisted with writing and debugging Django views for creating, editing and cancelling bookings, as well as retrieving a customer's bookings through their profile page.
 
+4. HTML and CSS: Helped troubleshoot HTML validation errors, improve Django form rendering, refine CSS selectors, adjust responsive navigation styling and customise the FullCalendar theme.
 
-    class SignUpForm(UserCreationForm):
-        first_name = forms.CharField(max_length=30,     required=True)
-        last_name = forms.CharField(max_length=30,  required=True)
-        email = forms.EmailField(required=True)
+5. Authentication and security: Assisted with Django signup and login functionality, logout form handling, customer booking ownership checks and the use of environment variables for sensitive configuration.
 
-    class Meta:
-        model = User
-        fields = (
-            'username',
-            'first_name',
-            'last_name',
-            'email',
-            'password1',
-            'password2',
-        )
+6. Deployment and configuration: Helped troubleshoot Django settings, database migrations, PostgreSQL connectivity, static-file configuration, Heroku deployment errors and Python version compatibility.
