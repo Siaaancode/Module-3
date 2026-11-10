@@ -307,17 +307,17 @@ The About Us and Contact sections will be included to provide essential restaura
 
 Overall, the wireframe will focus on establishing a clear visual hierarchy, maintaining consistency and providing an accessible, user-friendly starting point for visitors to the website.
 
-Mobile screensize
+#### Mobile screensize
 ![Nav bar / Hero banner](/bookings/static/images/wireframes/home_page/mobile_screensize_wireframes/mobile_screensize_wireframes_navbar_and_hero_banner.png)
 ![About us](/bookings/static/images/wireframes/home_page/mobile_screensize_wireframes/mobile_screensize_wireframes_about_us_section.png)
 ![Contact us](/bookings/static/images/wireframes/home_page/mobile_screensize_wireframes/mobile_screensize_wireframes_contact_us_section.png)
 
-Tablet screensize
+#### Tablet screensize
 ![Nav bar / Hero banner](/bookings/static/images/wireframes/home_page/tablet_screensize_wireframes/tablet_screensize_wireframes_navbar_and_hero_banner.png)
 ![About us](/bookings/static/images/wireframes/home_page/tablet_screensize_wireframes/tablet_screensize_wireframes_about_us_section.png)
 ![Contact us](/bookings/static/images/wireframes/home_page/tablet_screensize_wireframes/tablet_screensize_wireframes_contact_us_section.png)
 
-Laptop and Larger
+#### Laptop and Larger
 ![Nav bar / Hero banner](/bookings/static/images/wireframes/home_page/laptop_and_larger_screensize_wireframes/laptop_and_larger_wireframes_home_page_navbar_and_hero_banner.png)
 ![About us](/bookings/static/images/wireframes/home_page/laptop_and_larger_screensize_wireframes/laptop_and_larger_wireframes_about_us_section.png)
 ![Contact us](/bookings/static/images/wireframes/home_page/laptop_and_larger_screensize_wireframes/laptop_and_larger_wireframes_contact_us_section.png)
@@ -330,13 +330,13 @@ The menu will be organised into clearly defined sections, with headings to disti
 
 The page will aim to give customers a convenient way to explore the restaurant's offerings before making a reservation. By prioritising readability, simple navigation and a consistent design, the proposed layout will support an accessible and user-friendly experience.
 
-Mobile screensize
+#### Mobile screensize
 ![Menu](/bookings/static/images/wireframes/menu_page/mobile_screensize_wireframes_menu_page.png)
 
-Tablet screensize
+#### Tablet screensize
 ![Menu](/bookings/static/images/wireframes/menu_page/tablet_screensize_wireframes_menu_page.png)
 
-Laptop and Larger
+#### Laptop and Larger
 ![Menu](/bookings/static/images/wireframes/menu_page/laptop_and_larger_wireframes_menu_page_menu_and_hero_banner.png)
 
 ### Booking Page
@@ -349,19 +349,19 @@ The booking system will be designed to check table availability and prevent over
 
 Overall, the wireframe will prioritise usability, clear communication and efficient booking management. The aim will be to create a straightforward booking experience for customers while supporting restaurant staff in managing table availability.
 
-Mobile screensize
+#### Mobile screensize
 ![Calender](/bookings/static/images/wireframes/booking_page/mobile_screensize_wireframes/mobile_screensize_wireframes_booking_page_calendar.png)
 ![Information section](/bookings/static/images/wireframes/booking_page/mobile_screensize_wireframes/mobile_screensize_wireframes_booking_page_additional_information.png)
 ![Details](/bookings/static/images/wireframes/booking_page/mobile_screensize_wireframes/mobile_screensize_wireframes_booking_page_detail_section.png)
 ![Confirmation](/bookings/static/images/wireframes/booking_page/mobile_screensize_wireframes/mobile_screensize_wireframes_booking_confirmation_page.png)
 
-Tablet screensize
+#### Tablet screensize
 ![Calender](/bookings/static/images/wireframes/booking_page/tablet_screensize_wireframes/tablet_screensize_wireframes_booking_page_calendar.png)
 ![Information section](/bookings/static/images/wireframes/booking_page/tablet_screensize_wireframes/tablet_screensize_wireframes_booking_page_additional_information.png)
 ![Details](/bookings/static/images/wireframes/booking_page/tablet_screensize_wireframes/tablet_screensize_wireframes_booking_page_detail_section.png)
 ![Confirmation](/bookings/static/images/wireframes/booking_page/tablet_screensize_wireframes/tablet_screensize_wireframes_booking_confirmation_page.png)
 
-Laptop and Larger
+#### Laptop and Larger
 ![Calender](/bookings/static/images/wireframes/booking_page/laptops_and_larger_screensize_wireframes/laptop_and_larger_wireframes_booking_section_calender.png)
 ![Information section](/bookings/static/images/wireframes/booking_page/laptops_and_larger_screensize_wireframes/laptop_and_larger_wireframes_booking_section_additional_information.png)
 ![Details](/bookings/static/images/wireframes/booking_page/laptops_and_larger_screensize_wireframes/laptop_and_larger_wireframes_booking_section_detail_section.png)
@@ -800,6 +800,142 @@ Although the original goals did not fundamentally change, the project evolved to
 
 ## Final screenshots of finished website
 
+### Homepage screenshots
+#### Mobile
+![Homepage](/bookings/static/images/final_screenshots/home_page/mobile_screensize/mobile_screensize_home_page.png)
+![Homepage](/bookings/static/images/final_screenshots/home_page/mobile_screensize/mobile_screensize_home_page_2.png)
+
+#### Tablet
+![Homepage](/bookings/static/images/final_screenshots/home_page/tablet_screensize/tablet_screensize_home_page.png)
+![Homepage](/bookings/static/images/final_screenshots/home_page/tablet_screensize/tablet_screensize_home_page_2.png)
+
+#### Laptops
+![Homepage](/bookings/static/images/final_screenshots/home_page/laptop_and_larger_screensize/laptop_screen_sizes_home_page_1.png)
+![Homepage](/bookings/static/images/final_screenshots/home_page/laptop_and_larger_screensize/laptop_screen_sizes_home_page_2.png)
+
+#### Desktop
+![Homepage](/bookings/static/images/final_screenshots/home_page/desktop_screensize/desktop_screensize_hero_banner.png)
+![Homepage](/bookings/static/images/final_screenshots/home_page/desktop_screensize/desktop_screensize_about_us_section.png)
+![Homepage](/bookings/static/images/final_screenshots/home_page/desktop_screensize/desktop_screensize_contact_us_section.png)
+
+### Navigation bar screenshots
+
+#### Mobile
+![Navigation bar](/bookings/static/images/final_screenshots/navigation_bar/mobile_screensize_navbar.png)
+
+#### Tablet
+![Navigation bar](/bookings/static/images/final_screenshots/navigation_bar/tablet_screensize_navbar.png)
+
+#### Laptops
+![Navigation bar](/bookings/static/images/final_screenshots/navigation_bar/laptop_screen_size_navigation_bar.png)
+
+#### Desktop
+![Navigation bar](/bookings/static/images/final_screenshots/navigation_bar/desktop_screensize_navbar.png)
+
+### Menu page screenshots
+
+#### Mobile
+![Menu page](/bookings/static/images/final_screenshots/menu_page/mobile_screensizes/mobile_screensize_menu_page.png)
+![Menu page](/bookings/static/images/final_screenshots/menu_page/mobile_screensizes/mobile_screensize_menu_page_2.png)
+![Menu page](/bookings/static/images/final_screenshots/menu_page/mobile_screensizes/mobile_screensize_menu_page_3.png)
+
+#### Tablet
+![Menu page](/bookings/static/images/final_screenshots/menu_page/tablet_screensizes/tablet_screensize_menu_page.png)
+![Menu page](/bookings/static/images/final_screenshots/menu_page/tablet_screensizes/tablet_screensize_menu_page_2.png)
+
+#### Laptops
+![Menu page](/bookings/static/images/final_screenshots/menu_page/laptop_and_larger_screensizes/laptop_and_larger_screensize_menu_page.png)
+![Menu page](/bookings/static/images/final_screenshots/menu_page/laptop_and_larger_screensizes//laptop_and_larger_screensize_menu_page_2.png)
+
+#### Desktop
+![Menu page](/bookings/static/images/final_screenshots/menu_page/desktop_screensize_menu_page/Screenshot%202026-11-10%20at%2022.14.13.png)
+
+### Booking page screenshots
+
+#### Mobile
+![Booking page](/bookings/static/images/final_screenshots/booking_page/mobile_screensize/mobile_screensize_booking_page.png)
+
+#### Tablet
+![Booking page](/bookings/static/images/final_screenshots/booking_page/tablet_screensize/tablet_screensize_booking_page.png)
+
+#### Laptops
+![Booking page](/bookings/static/images/final_screenshots/booking_page/laptop_and_larger_screensize/laptop_and_larger_screensize_booking_page.png)
+
+#### Desktop
+![Booking page](/bookings/static/images/final_screenshots/booking_page/desktop_screensize/desktop_screensize_booking_page.png)
+
+### Cancel booking screenshots
+
+#### Mobile
+![Cancel booking](/bookings/static/images/final_screenshots/cancel_booking_page/mobile_screensize_canel_booking_page.png)
+
+#### Tablet
+![Cancel booking](/bookings/static/images/final_screenshots/cancel_booking_page/tablet_screensize_canel_booking_page.png)
+
+#### Laptops
+![Cancel booking](/bookings/static/images/final_screenshots/cancel_booking_page/laptop_and_larger_screensize_canel_booking_page.png)
+
+#### Desktop
+![Cancel booking](/bookings/static/images/final_screenshots/cancel_booking_page/desktop_screensize_cancel_booking_page.png)
+
+### Edit booking screenshots
+
+#### Mobile
+![Edit booking](/bookings/static/images/final_screenshots/edit_booking_page/mobile_screensize_edit_booking_page.png)
+
+#### Tablet
+![Edit booking](/bookings/static/images/final_screenshots/edit_booking_page/tablet_screensize_edit_booking_page.png)
+
+#### Laptops
+![Edit booking](/bookings/static/images/final_screenshots/edit_booking_page/laptop_and_larger_screensize_edit_booking_page.png)
+
+#### Desktop
+![Edit booking](/bookings/static/images/final_screenshots/edit_booking_page/desktop_screensize_edit_booking_page.png)
+
+### Login screenshots
+
+#### Mobile
+![Login page](/bookings/static/images/final_screenshots/login_page/mobile_screensize_login_page.png)
+
+#### Tablet
+![Login page](/bookings/static/images/final_screenshots/login_page/tablet_screensize_login_page.png)
+
+#### Laptops
+![Login page](/bookings/static/images/final_screenshots/login_page/laptop_and_larger_screensize.png)
+
+#### Desktop
+![Login page](/bookings/static/images/final_screenshots/login_page/desktop_screensize_login_page.png)
+
+### Sign up screenshots
+
+#### Mobile
+![Signup page](/bookings/static/images/final_screenshots/sign_up_page/mobile_screensize/mobile_screensize_signup_page.png)
+![Signup page](/bookings/static/images/final_screenshots/sign_up_page/mobile_screensize/mobile_screensize_signup_page_2.png)
+
+#### Tablet
+![Signup page](/bookings/static/images/final_screenshots/sign_up_page/tablet_screensize_signup_page.png)
+
+#### Laptops
+![Signup page](/bookings/static/images/final_screenshots/sign_up_page/laptop_and_larger_screensize_signup_page.png)
+
+#### Desktop
+![Signup page](/bookings/static/images/final_screenshots/sign_up_page/desktop_screensize_sign_up_page.png)
+
+### Profile screenshots
+
+#### Mobile
+![Profile page](/bookings/static/images/final_screenshots/profile_page/mobile_screensize/mobile_screenshot_profile_page.png)
+![Profile page](/bookings/static/images/final_screenshots/profile_page/mobile_screensize/mobile_screenshot_profile_page_2.png)
+
+#### Tablet
+![Profile page](/bookings/static/images/final_screenshots/profile_page/tablet_screensize/tablet_screensize_profile_page.png)
+
+#### Laptops
+![Profile page](/bookings/static/images/final_screenshots/profile_page/laptop_and_larger_screensize/laptop_and_larger_screensize_profile_page.png)
+
+#### Desktop
+![Profile page](/bookings/static/images/final_screenshots/profile_page/desktop_screensize_profile_page.png)
+
 # Credits
 
 ## Frameworks and Libraries
@@ -810,7 +946,7 @@ Although the original goals did not fundamentally change, the project evolved to
 - Google Fonts – Used to provide the Work Sans typeface.
 - PostgreSQL – Used as the relational database for storing customer, table and booking information.
 - Jest – Used to test JavaScript functionality, including booking calendar behaviour.
-- ChatGPT: Helping fix issues and offering suggestions for improvements on features and validation.
+- ChatGPT - Helping fix issues and offering suggestions for improvements on features and validation.
 
 ## Content
 ### VSCode
