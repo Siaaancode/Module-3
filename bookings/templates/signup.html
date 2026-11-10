@@ -89,7 +89,7 @@
     <main id="signup">
         <h1>Sign up</h1>
 
-        <form method="POST">
+        <form method="POST" id="signup-form">
             {% csrf_token %}
 
             {% for field in form %}
@@ -111,7 +111,7 @@
             </div>
             {% endfor %}
 
-            <button type="submit" class="btn btn-primary">Sign up</button>
+            <button type="submit" class="signup btn btn-primary">Sign up</button>
         </form>
 
         <p>Already have an account
@@ -119,9 +119,10 @@
         </p>
     </main>
 
-    <footer>
-
-
+    <footer id="footer-container">
+        <div id="copyright">
+            <p>&copy; Kokoro, 2026</p>
+        </div>
     </footer>
 
     <!-- Bootstrap JS -->

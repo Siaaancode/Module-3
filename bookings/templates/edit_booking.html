@@ -86,7 +86,7 @@
             </div>
         </nav>
     </header>
-    <main class="container py-5">
+    <main class="container py-3">
         <h1>Edit Your Booking</h1>
 
         {% if error %}
@@ -95,7 +95,7 @@
         </div>
         {% endif %}
 
-        <form method="POST">
+        <form method="POST" id="edit-booking-form">
             {% csrf_token %}
 
             <div class="mb-3">
@@ -110,7 +110,7 @@
                 <label for="booking_time" class="form-label">
                     Booking time
                 </label>
-                <input type="time" id="booking_time" name="booking_time" class="form-control"
+                <input type="time" id="edit-booking-time" name="booking_time" class="form-control"
                     value="{{ booking.booking_time|time:'H:i' }}" step="1800" required>
                 <small class="form-text">
                     Bookings last two hours. Availability will be checked
@@ -126,7 +126,7 @@
                     required>
             </div>
 
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="save-edit btn btn-primary">
                 Save Changes
             </button>
 

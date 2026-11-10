@@ -88,7 +88,7 @@
     </header>
 
     <main>
-        <section class="container py-5">
+        <section id="profile" class="container py-4">
             <h1>My Profile</h1>
             <p>Welcome, {{ request.user.first_name|default:request.user.username }}.</p>
 
@@ -131,7 +131,7 @@
                                 </p>
 
                                 {% if booking.status == "confirmed" %}
-                                <a href="{% url 'edit_booking' booking.id %}" class="btn btn-primary btn-sm">
+                                <a href="{% url 'edit_booking' booking.id %}" class="edit btn btn-primary btn-sm">
                                     Edit Booking
                                 </a>
 
@@ -151,9 +151,16 @@
                 </a>
                 {% endif %}
             </div>
+            <br>
 
         </section>
     </main>
+
+    <footer id="footer-container" class="fixed-bottom">
+        <div id="copyright">
+            <p>&copy; Kokoro, 2026</p>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
