@@ -307,9 +307,20 @@ The About Us and Contact sections will be included to provide essential restaura
 
 Overall, the wireframe will focus on establishing a clear visual hierarchy, maintaining consistency and providing an accessible, user-friendly starting point for visitors to the website.
 
-![Nav bar / Hero banner](/bookings/static/images/wireframes/home_page/wireframes_home_page_navbar_and_hero_banner.png)
-![About us](/bookings/static/images/wireframes/home_page/wireframes_about_us_section.png)
-![Contact us](/bookings/static/images/wireframes/home_page/wireframes_contact_us_section.png)
+Mobile screensize
+![Nav bar / Hero banner](/bookings/static/images/wireframes/home_page/mobile_screensize_wireframes/mobile_screensize_wireframes_navbar_and_hero_banner.png)
+![About us](/bookings/static/images/wireframes/home_page/mobile_screensize_wireframes/mobile_screensize_wireframes_about_us_section.png)
+![Contact us](/bookings/static/images/wireframes/home_page/mobile_screensize_wireframes/mobile_screensize_wireframes_contact_us_section.png)
+
+Tablet screensize
+![Nav bar / Hero banner](/bookings/static/images/wireframes/home_page/tablet_screensize_wireframes/tablet_screensize_wireframes_navbar_and_hero_banner.png)
+![About us](/bookings/static/images/wireframes/home_page/tablet_screensize_wireframes/tablet_screensize_wireframes_about_us_section.png)
+![Contact us](/bookings/static/images/wireframes/home_page/tablet_screensize_wireframes/tablet_screensize_wireframes_contact_us_section.png)
+
+Laptop and Larger
+![Nav bar / Hero banner](/bookings/static/images/wireframes/home_page/laptop_and_larger_screensize_wireframes/laptop_and_larger_wireframes_home_page_navbar_and_hero_banner.png)
+![About us](/bookings/static/images/wireframes/home_page/laptop_and_larger_screensize_wireframes/laptop_and_larger_wireframes_about_us_section.png)
+![Contact us](/bookings/static/images/wireframes/home_page/laptop_and_larger_screensize_wireframes/laptop_and_larger_wireframes_contact_us_section.png)
 
 ### Menu Page
 
@@ -319,7 +330,14 @@ The menu will be organised into clearly defined sections, with headings to disti
 
 The page will aim to give customers a convenient way to explore the restaurant's offerings before making a reservation. By prioritising readability, simple navigation and a consistent design, the proposed layout will support an accessible and user-friendly experience.
 
-![Menu](/bookings/static/images/wireframes/menu_page/wireframes_menu_page_menu_and_hero_banner.png)
+Mobile screensize
+![Menu](/bookings/static/images/wireframes/menu_page/mobile_screensize_wireframes_menu_page.png)
+
+Tablet screensize
+![Menu](/bookings/static/images/wireframes/menu_page/tablet_screensize_wireframes_menu_page.png)
+
+Laptop and Larger
+![Menu](/bookings/static/images/wireframes/menu_page/laptop_and_larger_wireframes_menu_page_menu_and_hero_banner.png)
 
 ### Booking Page
 
@@ -331,10 +349,23 @@ The booking system will be designed to check table availability and prevent over
 
 Overall, the wireframe will prioritise usability, clear communication and efficient booking management. The aim will be to create a straightforward booking experience for customers while supporting restaurant staff in managing table availability.
 
-![Calender](/bookings/static/images/wireframes/booking_page/wireframes_booking_section_calender.png)
-![Information section](/bookings/static/images/wireframes/booking_page/wireframes_booking_section_additional_information.png)
-![Details](/bookings/static/images/wireframes/booking_page/wireframes_booking_section_detail_section.png)
-![Confirmation](/bookings/static/images/wireframes/booking_page/wireframes_booking_confirmation_page.png)
+Mobile screensize
+![Calender](/bookings/static/images/wireframes/booking_page/mobile_screensize_wireframes/mobile_screensize_wireframes_booking_page_calendar.png)
+![Information section](/bookings/static/images/wireframes/booking_page/mobile_screensize_wireframes/mobile_screensize_wireframes_booking_page_additional_information.png)
+![Details](/bookings/static/images/wireframes/booking_page/mobile_screensize_wireframes/mobile_screensize_wireframes_booking_page_detail_section.png)
+![Confirmation](/bookings/static/images/wireframes/booking_page/mobile_screensize_wireframes/mobile_screensize_wireframes_booking_confirmation_page.png)
+
+Tablet screensize
+![Calender](/bookings/static/images/wireframes/booking_page/tablet_screensize_wireframes/tablet_screensize_wireframes_booking_page_calendar.png)
+![Information section](/bookings/static/images/wireframes/booking_page/tablet_screensize_wireframes/tablet_screensize_wireframes_booking_page_additional_information.png)
+![Details](/bookings/static/images/wireframes/booking_page/tablet_screensize_wireframes/tablet_screensize_wireframes_booking_page_detail_section.png)
+![Confirmation](/bookings/static/images/wireframes/booking_page/tablet_screensize_wireframes/tablet_screensize_wireframes_booking_confirmation_page.png)
+
+Laptop and Larger
+![Calender](/bookings/static/images/wireframes/booking_page/laptops_and_larger_screensize_wireframes/laptop_and_larger_wireframes_booking_section_calender.png)
+![Information section](/bookings/static/images/wireframes/booking_page/laptops_and_larger_screensize_wireframes/laptop_and_larger_wireframes_booking_section_additional_information.png)
+![Details](/bookings/static/images/wireframes/booking_page/laptops_and_larger_screensize_wireframes/laptop_and_larger_wireframes_booking_section_detail_section.png)
+![Confirmation](/bookings/static/images/wireframes/booking_page/laptops_and_larger_screensize_wireframes/laptop_and_larger_wireframes_booking_confirmation_page.png)
 
 ### Error 404 page
 
