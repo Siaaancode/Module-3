@@ -737,13 +737,44 @@ The system correctly redirects the customer to their profile after a successful 
 
 5. "As a customer, it would be useful to be able to make special requests. This would be helpful so I could prepare the restaurant for any requests me and my party may have, leaving no room for issues on the day."
 
+- The customer completes the booking form by selecting their preferred date, time and party size.
+- The customer has the option to enter additional comments or special requests using the optional text input.
+- The customer submits their booking and is redirected to their profile page.
+- Their reservation details, including any special requests submitted, are displayed on their profile.
+- The restaurant owner can also view the customer's requests through the Django Admin panel.
+
 ### Actual Result
 
+Below are images proving manual testing of the user story. They demonstrate that a user can add special requests to their booking, it shows up on their booking (both backend and on their profile) and that it doesn't change or disappear when the user edits their bookings information.
 
+![Django admin](/bookings/static/images/tests_images/special_requests_tests/admin_test_for_booking_information.png)
+This image provides evidence of the special request section being saved to the booking system.
 
+![No comment](/bookings/static/images/tests_images/special_requests_tests/test_user_can_book_without_a_comment.png)
+This image provides evidence that a booking can still be created without a special request.
 
-Feature: Allow customers to add requests such as accessibility requirements, dietary information, or special occasions.
+![Special request shows on booking](/bookings/static/images/tests_images/special_requests_tests/test_checking_special_request_shows_on_profile_booking.png)
+This image provides evidence that the special request can be viewed by the customer after the booking has been confirmed.
 
+![Special request stays after editing booking](/bookings/static/images/tests_images/special_requests_tests/test_change_booking_special_requests_dont_change.png)
+This image provides evidence that the special request doesn't disappear or change after the user changed the time and party size.
+
+### Tested Scenario - Expected Result
+
+6. "As a customer, I might want to sit in a specific area of the restuarant. I would be nice to have the option."
+
+- While booking, the user can choose from a dropdown menu giving them the option to choose their seating.
+- This option is then on their booking information and given to the restaurant staff.
+
+### Actual Result
+
+I decided to combine this user story with the special requests functionality described in User Story 5. My original intention was to implement seating preferences using a separate dropdown menu, allowing customers to select from predefined areas of the restaurant.
+
+However, I decided that using a single optional special requests input would provide greater flexibility. Customers can use this field to request a particular seating area, such as a window seat, or communicate other preferences that may not be covered by a predefined selection.
+
+This approach also avoids adding unnecessary form fields while allowing customers to communicate a wider range of requirements.
+
+By combining these two user stories, I was able to achieve both objectives through one straightforward feature without restricting the information customers can provide.
 
 ## User Stories that didn't get created
 
@@ -764,13 +795,6 @@ Feature: Available booking slots are temporarily held while the customer complet
 4. "As an employee, it would be really helpful if I could adjust the booking status. With the ability to manage the booking status, we could avoid confusion to if a table has arrived, placed their order, etc."
 
 Feature: Allow staff to mark bookings as confirmed, cancelled, completed, or no-show, placed order, etc.
-
-
-
-6. "As a customer, I might want to sit in a specific area of the restuarant. I would be nice to have the option."
-
-Feature: Allow customers to request a preferred seating area, such as indoor, outdoor, or window seating.
-
 
 
 ### Tested Scenario - Expected Result
