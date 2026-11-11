@@ -162,7 +162,10 @@ def create_booking(request):
             booking_time = time.fromisoformat(
                 request.POST.get("booking_time", "")
             )
-            guests = int(request.POST.get("guests", ""))
+            guests = int(request.POST.get("guests", "")
+            )
+            special_requests = request.POST.get("special_requests", "").strip(
+            )
 
         except (TypeError, ValueError):
             # Redisplay the form if any submitted value is missing
@@ -229,6 +232,7 @@ def create_booking(request):
                 guests=guests,
                 duration_minutes=BOOKING_DURATION,
                 status="confirmed",
+                special_requests=special_requests,
             )
         # Redirect the customer to their profile after booking.
         return redirect("profile")

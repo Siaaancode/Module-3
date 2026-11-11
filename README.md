@@ -666,57 +666,83 @@ Cancel booking page
 
 ![Cancel booking page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_cancel_booking_page.png)
 
+
 ## Testing User Stories
 
 1. "As a restaurant owner, I want to be sure that the restaurant is never overbooked. This would help me maintain a good reputation with customers and avoid disappointment."
 
 ### Tested Scenario - Expected Result
 
-- Customer selects the date they want to book.
-- Customer goes to select the time they want but it already booked so time isn't available.
+- The customer selects their preferred booking date.
+- The system checks existing reservations and identifies which time slots are still available.
+- If a time slot is already fully booked, it should no longer appear as an available option.
+- The customer should only be able to select a time slot where a suitable table is available.
 
 ### Actual Result
 
-For this one, I manually tested by filling up a specific time for a day. The system successfully removed the time from the availability. 
+I manually tested this scenario by creating reservations until a particular time slot was fully booked. The system successfully recognised that no suitable tables were available and automatically removed the fully booked time slot from the list of available booking times.
 
-There is also automated testing that checks if the system loads available booking times successfully, reloads availability when the guest count changes, check that overlapping bookings cannot use the same table and displays a message when no booking times are available.
+Automated testing also verifies that booking availability loads correctly, updates when the number of guests changes, and prevents overlapping reservations from being assigned to the same table. Additional tests check that the system handles situations where no booking times are available.
 
 ### Tested Scenario - Expected Result
 
 2. "As a customer, I want to be able to easily create, edit and delete my reservation. This would make my life easier and save me time."
 
-- Customer selects the date and party size.
-- System checks that information to find available times.
-- Customer then selects available time and submits to confirm booking.
-- The customer is then redirected to their profile page, where their current bookings are available to view, edit and delete.
+- The customer selects their preferred booking date and party size.
+- The system checks the selected information against existing reservations to identify available time slots.
+- The customer selects an available time and submits the booking form.
+- Once the booking has been successfully created, the customer is redirected to their profile page.
+- The profile page displays their current reservations and provides options to edit or cancel existing bookings.
 
 ### Actual Result
 
-I manually tested all these steps, from the booking to editing and deleting of the bookings successfully. 
+I manually tested the complete reservation process, including creating a booking, viewing the reservation on the profile page, editing the booking details and successfully cancelling the reservation.
 
-Automated testing checks that selecting a date updates the date input and text, check that cancellation releases a table and check that cancelled bookings no longer block availability.
+Automated tests were also implemented to verify that selecting a date correctly updates the booking form, cancelling a reservation releases the allocated table, and cancelled bookings no longer prevent other customers from booking the same time slot.
 
 ### Tested Scenario - Expected Result
 
 3. "As a customer, it would be really helpful if any fully booked slots and dates were automatically crossed off. This would avoid the disappointment of trying to book a reservation that I can't have."
 
-- Customer selects a date.
-- The date is unavailable and gives the user a error message.
+- The customer navigates to the booking calendar and selects a preferred date.
+- The system checks whether any suitable tables and booking times are available.
+- If no availability exists, the customer should be informed that no booking times are available.
+- The customer should be able to select another date rather than attempting to submit an unavailable reservation.
 
 ### Actual Result
 
-Manual testing this user story would have been a tedious task, so I've replied completely on automated testing. I created a test that prompts the customer to select a date when no date is selected.
+I primarily relied on automated testing for this scenario, as manually testing every possible combination of unavailable dates and time slots would be time-consuming.
+
+Automated tests verify that the booking form prompts the customer to select a date if none has been selected. Additional availability tests check that the system correctly handles empty availability responses and displays the appropriate message when no booking times are available.
+
+This helps ensure that customers receive clear feedback rather than being presented with booking options that cannot be fulfilled.
 
 ### Tested Scenario - Expected Result
 
 4. "As a customer, I want to receive a booking confirmation. This would help me make sure I haven't got any important information wrong and serve as a reminder for the date and time of my reservation."
 
-- Customer creates their booking.
-- They are then redirected to their profile, where they can view their booking details and see the confirmation of booking.
+- The customer completes and submits the booking form.
+- The system validates the submitted information and successfully saves the reservation.
+- The customer is redirected to their profile page.
+- The newly created reservation is displayed alongside its relevant details, including the booking date, time and number of guests.
+- The customer can refer back to their profile to review their reservation details.
 
 ### Actual Result
 
-By manually testing this user story, I can see that it was successfully achieved, since any bookings made clearly show up on the profile page.
+I manually tested this scenario by creating several reservations and checking that each one was successfully displayed on the customer's profile page.
+
+The system correctly redirects the customer to their profile after a successful booking, where the reservation details are clearly displayed. This provides the customer with a convenient way to verify that their booking has been saved and review the information associated with it.
+
+### Tested Scenario - Expected Result
+
+5. "As a customer, it would be useful to be able to make special requests. This would be helpful so I could prepare the restaurant for any requests me and my party may have, leaving no room for issues on the day."
+
+### Actual Result
+
+
+
+
+Feature: Allow customers to add requests such as accessibility requirements, dietary information, or special occasions.
 
 
 ## User Stories that didn't get created
@@ -739,9 +765,7 @@ Feature: Available booking slots are temporarily held while the customer complet
 
 Feature: Allow staff to mark bookings as confirmed, cancelled, completed, or no-show, placed order, etc.
 
-5. "As a customer, it would be useful to be able to make special requests. This would be helpful so I could prepare the restaurant for any requests me and my party may have, leaving no room for issues on the day."
 
-Feature: Allow customers to add requests such as accessibility requirements, dietary information, or special occasions.
 
 6. "As a customer, I might want to sit in a specific area of the restuarant. I would be nice to have the option."
 

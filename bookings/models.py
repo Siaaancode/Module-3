@@ -60,6 +60,13 @@ class Booking(models.Model):
         default=2
     )
 
+    # Allos customers to add any special requests or dietary requirements for their booking.
+    special_requests = models.TextField(
+        max_length=500,
+        blank=True,
+        help_text="Optional: Add any special requests or dietary requirements."
+    )
+
     # Store the expected booking duration in minutes.
     duration_minutes = models.PositiveIntegerField(
         default=120

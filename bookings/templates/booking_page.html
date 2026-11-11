@@ -120,6 +120,18 @@
                     <option value="">Select a date first</option>
                 </select>
                 <hr>
+                <div class="mb-3">
+                    <label for="special_requests" class="form-label">
+                        Special Requests (Optional)
+                    </label>
+                    <textarea class="form-control" id="special_requests" name="special_requests" row="4" maxlength="500"
+                        placeholder="Let us know if you have any allergies or special requests.">
+                </textarea>
+
+                <small class="form-text text-muted">
+                    Maximum 500 charaters.
+                </small>
+                </div>
 
                 {% if error %}
                 <p role="alert">{{ error }}</p>

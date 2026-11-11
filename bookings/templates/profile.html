@@ -126,6 +126,11 @@
                                 </p>
 
                                 <p>
+                                    <strong>Special Requests:</strong>
+                                    {{ booking.special_requests|default:"None" }}
+                                </p>
+
+                                <p>
                                     <strong>Status:</strong>
                                     {{ booking.get_status_display }}
                                 </p>

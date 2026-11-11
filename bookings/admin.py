@@ -24,3 +24,14 @@ class BookingAdmin(admin.ModelAdmin):
     )
 
     list_filter = ("booking_date", "status")
+
+    fields = (
+        "user",
+        "table",
+        "booking_date",
+        "booking_time",
+        "guests",
+        "duration_minutes",
+        "status",
+        "special_requests",
+    )
