@@ -77,9 +77,9 @@ Feature: Customers receive a clear confirmation once their reservation has been 
 
 ### Should-have
 
-"As a customer, it would be really useful if there was a period of time where my booking is temporarily reserved while I'm filling out my details, so the slot doesn't get booked by someone else before me"
+"As a customer, it would be useful to be able to make special requests. This would be helpful so I could prepare the restaurant for any requests me and my party may have, leaving no room for issues on the day."
 
-Feature: Available booking slots are temporarily held while the customer completes their details, helping to prevent the same slot being booked by multiple customers.
+Feature: Allow customers to add requests such as accessibility requirements, dietary information, or special occasions.
 
 "As a customer, it would be really helpful if any fully booked slots and dates were automatically crossed off. This would avoid the disappointment of trying to book a reservation that I can't have."
 
@@ -91,9 +91,9 @@ Feature: The system should clearly show which dates and times are available or u
 
 Feature: Allow staff to mark bookings as confirmed, cancelled, completed, or no-show, placed order, etc.
 
-"As a customer, it would be useful to be able to make special requests. This would be helpful so I could prepare the restaurant for any requests me and my party may have, leaving no room for issues on the day."
+"As a customer, it would be really useful if there was a period of time where my booking is temporarily reserved while I'm filling out my details, so the slot doesn't get booked by someone else before me"
 
-Feature: Allow customers to add requests such as accessibility requirements, dietary information, or special occasions.
+Feature: Available booking slots are temporarily held while the customer completes their details, helping to prevent the same slot being booked by multiple customers.
 
 "As a customer, I might want to sit in a specific area of the restuarant. I would be nice to have the option."
 
@@ -684,9 +684,9 @@ I manually tested this scenario by creating reservations until a particular time
 
 Automated testing also verifies that booking availability loads correctly, updates when the number of guests changes, and prevents overlapping reservations from being assigned to the same table. Additional tests check that the system handles situations where no booking times are available.
 
-### Tested Scenario - Expected Result
-
 2. "As a customer, I want to be able to easily create, edit and delete my reservation. This would make my life easier and save me time."
+
+### Tested Scenario - Expected Result
 
 - The customer selects their preferred booking date and party size.
 - The system checks the selected information against existing reservations to identify available time slots.
@@ -700,9 +700,9 @@ I manually tested the complete reservation process, including creating a booking
 
 Automated tests were also implemented to verify that selecting a date correctly updates the booking form, cancelling a reservation releases the allocated table, and cancelled bookings no longer prevent other customers from booking the same time slot.
 
-### Tested Scenario - Expected Result
-
 3. "As a customer, it would be really helpful if any fully booked slots and dates were automatically crossed off. This would avoid the disappointment of trying to book a reservation that I can't have."
+
+### Tested Scenario - Expected Result
 
 - The customer navigates to the booking calendar and selects a preferred date.
 - The system checks whether any suitable tables and booking times are available.
@@ -717,9 +717,9 @@ Automated tests verify that the booking form prompts the customer to select a da
 
 This helps ensure that customers receive clear feedback rather than being presented with booking options that cannot be fulfilled.
 
-### Tested Scenario - Expected Result
-
 4. "As a customer, I want to receive a booking confirmation. This would help me make sure I haven't got any important information wrong and serve as a reminder for the date and time of my reservation."
+
+### Tested Scenario - Expected Result
 
 - The customer completes and submits the booking form.
 - The system validates the submitted information and successfully saves the reservation.
@@ -733,9 +733,9 @@ I manually tested this scenario by creating several reservations and checking th
 
 The system correctly redirects the customer to their profile after a successful booking, where the reservation details are clearly displayed. This provides the customer with a convenient way to verify that their booking has been saved and review the information associated with it.
 
-### Tested Scenario - Expected Result
-
 5. "As a customer, it would be useful to be able to make special requests. This would be helpful so I could prepare the restaurant for any requests me and my party may have, leaving no room for issues on the day."
+
+### Tested Scenario - Expected Result
 
 - The customer completes the booking form by selecting their preferred date, time and party size.
 - The customer has the option to enter additional comments or special requests using the optional text input.
@@ -759,9 +759,9 @@ This image provides evidence that the special request can be viewed by the custo
 ![Special request stays after editing booking](/bookings/static/images/tests_images/special_requests_tests/test_change_booking_special_requests_dont_change.png)
 This image provides evidence that the special request doesn't disappear or change after the user changed the time and party size.
 
-### Tested Scenario - Expected Result
-
 6. "As a customer, I might want to sit in a specific area of the restuarant. I would be nice to have the option."
+
+### Tested Scenario - Expected Result
 
 - While booking, the user can choose from a dropdown menu giving them the option to choose their seating.
 - This option is then on their booking information and given to the restaurant staff.
@@ -776,9 +776,11 @@ This approach also avoids adding unnecessary form fields while allowing customer
 
 By combining these two user stories, I was able to achieve both objectives through one straightforward feature without restricting the information customers can provide.
 
+
 ## User Stories that didn't get created
 
 During the creation of this project, I realised I took on too much work and couldn't create the back-end management system for staff like I wanted to, therefore I didn't complete these user stories:
+
 
 1. "As an employee, I need to be able to view all the bookings. This would help me organise and prepared for the day and future days."
 
@@ -788,17 +790,18 @@ Feature: Staff can view current and upcoming reservations in an organised format
 
 Feature: Staff can access important information such as the customer name, number of guests, date and booking time.
 
-3. "As a customer, it would be really useful if there was a period of time where my booking is temporarily reserved while I'm filling out my details, so the slot doesn't get booked by someone else before me"
-
-Feature: Available booking slots are temporarily held while the customer completes their details, helping to prevent the same slot being booked by multiple customers.
-
-4. "As an employee, it would be really helpful if I could adjust the booking status. With the ability to manage the booking status, we could avoid confusion to if a table has arrived, placed their order, etc."
+3. "As an employee, it would be really helpful if I could adjust the booking status. With the ability to manage the booking status, we could avoid confusion to if a table has arrived, placed their order, etc."
 
 Feature: Allow staff to mark bookings as confirmed, cancelled, completed, or no-show, placed order, etc.
 
+My intention with the above user stories was to create a functioning and easy to navigate system, that staff could use to view, edit and orginise bookings. This would have given them all the information they need about the booking, including names, dates, times, special requirements, etc. as well as allowing staff to mark the bookings into categories.
 
-### Tested Scenario - Expected Result
-### Actual Result
+
+4. "As a customer, it would be really useful if there was a period of time where my booking is temporarily reserved while I'm filling out my details, so the slot doesn't get booked by someone else before me"
+
+Feature: Available booking slots are temporarily held while the customer completes their details, helping to prevent the same slot being booked by multiple customers.
+
+This feature was considered a could-have, a good addition but not necessary. Given limited timing, I did not manage to add it in.
 
 ## Testing evaluation
 ## Final checks
