@@ -164,7 +164,6 @@ https://pasturerestaurant.com/
 
 - Dates with no availability are not clearly disabled in the booking system. Instead, users can select an unavailable date before being prompted to choose an alternative location.
 
-
 3. What features could I use?
 
 - An automatic image slideshow on the homepage that showcases the restaurant and creates a visually engaging experience for users.
@@ -668,14 +667,94 @@ Cancel booking page
 ![Cancel booking page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_cancel_booking_page.png)
 
 ## Testing User Stories
+
+1. "As a restaurant owner, I want to be sure that the restaurant is never overbooked. This would help me maintain a good reputation with customers and avoid disappointment."
+
+### Tested Scenario - Expected Result
+
+- Customer selects the date they want to book.
+- Customer goes to select the time they want but it already booked so time isn't available.
+
+### Actual Result
+
+For this one, I manually tested by filling up a specific time for a day. The system successfully removed the time from the availability. 
+
+There is also automated testing that checks if the system loads available booking times successfully, reloads availability when the guest count changes, check that overlapping bookings cannot use the same table and displays a message when no booking times are available.
+
+### Tested Scenario - Expected Result
+
+2. "As a customer, I want to be able to easily create, edit and delete my reservation. This would make my life easier and save me time."
+
+- Customer selects the date and party size.
+- System checks that information to find available times.
+- Customer then selects available time and submits to confirm booking.
+- The customer is then redirected to their profile page, where their current bookings are available to view, edit and delete.
+
+### Actual Result
+
+I manually tested all these steps, from the booking to editing and deleting of the bookings successfully. 
+
+Automated testing checks that selecting a date updates the date input and text, check that cancellation releases a table and check that cancelled bookings no longer block availability.
+
+### Tested Scenario - Expected Result
+
+3. "As a customer, it would be really helpful if any fully booked slots and dates were automatically crossed off. This would avoid the disappointment of trying to book a reservation that I can't have."
+
+- Customer selects a date.
+- The date is unavailable and gives the user a error message.
+
+### Actual Result
+
+Manual testing this user story would have been a tedious task, so I've replied completely on automated testing. I created a test that prompts the customer to select a date when no date is selected.
+
+### Tested Scenario - Expected Result
+
+4. "As a customer, I want to receive a booking confirmation. This would help me make sure I haven't got any important information wrong and serve as a reminder for the date and time of my reservation."
+
+- Customer creates their booking.
+- They are then redirected to their profile, where they can view their booking details and see the confirmation of booking.
+
+### Actual Result
+
+By manually testing this user story, I can see that it was successfully achieved, since any bookings made clearly show up on the profile page.
+
+
+## User Stories that didn't get created
+
+During the creation of this project, I realised I took on too much work and couldn't create the back-end management system for staff like I wanted to, therefore I didn't complete these user stories:
+
+1. "As an employee, I need to be able to view all the bookings. This would help me organise and prepared for the day and future days."
+
+Feature: Staff can view current and upcoming reservations in an organised format.
+
+2. "As a employee, I need to be able to see the details of the bookings. This would help me organise the tables and ensure we have enough seats and staff available for how busy it might be."
+
+Feature: Staff can access important information such as the customer name, number of guests, date and booking time.
+
+3. "As a customer, it would be really useful if there was a period of time where my booking is temporarily reserved while I'm filling out my details, so the slot doesn't get booked by someone else before me"
+
+Feature: Available booking slots are temporarily held while the customer completes their details, helping to prevent the same slot being booked by multiple customers.
+
+4. "As an employee, it would be really helpful if I could adjust the booking status. With the ability to manage the booking status, we could avoid confusion to if a table has arrived, placed their order, etc."
+
+Feature: Allow staff to mark bookings as confirmed, cancelled, completed, or no-show, placed order, etc.
+
+5. "As a customer, it would be useful to be able to make special requests. This would be helpful so I could prepare the restaurant for any requests me and my party may have, leaving no room for issues on the day."
+
+Feature: Allow customers to add requests such as accessibility requirements, dietary information, or special occasions.
+
+6. "As a customer, I might want to sit in a specific area of the restuarant. I would be nice to have the option."
+
+Feature: Allow customers to request a preferred seating area, such as indoor, outdoor, or window seating.
+
+
+
 ### Tested Scenario - Expected Result
 ### Actual Result
 
 ## Testing evaluation
 ## Final checks
 
-## Test Checklist:
-### User Journey: (BY FUNCTION)
 
 # Deployment
 
