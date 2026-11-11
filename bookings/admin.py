@@ -21,6 +21,7 @@ class BookingAdmin(admin.ModelAdmin):
         "guests",
         "table",
         "status",
+        "special_requests",
     )
 
     list_filter = ("booking_date", "status")
