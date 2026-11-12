@@ -990,6 +990,20 @@ Although the original goals did not fundamentally change, the project evolved to
 #### Desktop
 ![Booking page](/bookings/static/images/final_screenshots/booking_page/desktop_screensize/desktop_screensize_booking_page.png)
 
+### Booking confirmation page screenshots
+
+#### Mobile
+![Booking confirmation page](/bookings/static/images/final_screenshots/booking_confirmation_page/mobile_screensize_booking_confirmation.png)
+
+#### Tablet
+![Booking confirmation page](/bookings/static/images/final_screenshots/booking_confirmation_page/tablet_screensize_booking_confirmation.png)
+
+#### Laptops
+![Booking confirmation page](/bookings/static/images/final_screenshots/booking_confirmation_page/laptop_and_larger_screensize_booking_confirmation.png)
+
+#### Desktop
+![Booking confirmation page](/bookings/static/images/final_screenshots/booking_confirmation_page/desktop_screensize_booking_confirmation.png)
+
 ### Cancel booking screenshots
 
 #### Mobile
@@ -1046,6 +1060,20 @@ Although the original goals did not fundamentally change, the project evolved to
 
 #### Desktop
 ![Signup page](/bookings/static/images/final_screenshots/sign_up_page/desktop_screensize_sign_up_page.png)
+
+### Sign up confirmation screenshot
+
+#### Mobile
+![Sign up confirmation](/bookings/static/images/final_screenshots/signup_confirmation_page/mobile_screensize_signup_confirmation.png)
+
+#### Tablet
+![Sign up confirmation](/bookings/static/images/final_screenshots/signup_confirmation_page/tablet_screensize_signup_confirmation.png)
+
+#### Laptops
+![Sign up confirmation](/bookings/static/images/final_screenshots/signup_confirmation_page/laptop_and_larger_screensize_signup_confirmation.png)
+
+#### Desktop
+![Sign up confirmation](/bookings/static/images/final_screenshots/signup_confirmation_page/desktop_screensize_signup_confirmation.png)
 
 ### Profile screenshots
 
