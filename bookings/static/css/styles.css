@@ -139,6 +139,18 @@ ul {
     margin-bottom: 10px;
 }
 
+/* Sign up confirmation page */
+
+#signup_confirmation_container {
+    text-align: center;
+    margin: 20px;
+}
+
+.signup_confirmation.btn-primary {
+    background-color: red;
+    border-color: red;
+}
+
 /* Login page */
 
 #login {

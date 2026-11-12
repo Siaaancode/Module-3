@@ -20,6 +20,10 @@ urlpatterns = [
         index_views.signup, 
         name='signup'
     ),
+    path('signup-confirmation/',
+        index_views.signup_confirmation,
+        name='signup_confirmation'
+    ),
     path(
         'login/',
         auth_views.LoginView.as_view(template_name='login.html'),

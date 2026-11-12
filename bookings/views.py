@@ -103,18 +103,16 @@ def signup(request):
         if form.is_valid():
             form.save()
 
-            # Display a confirmation message and redirect to login.
-            messages.success(
-                request,
-                'Your account has been created successfully.'
-            )
-            return redirect('login')
+            return redirect('signup_confirmation')
     else:
         # Display an empty signup form for a new visitor.
         form = SignUpForm()
 
     return render(request, 'signup.html', {'form': form})
 
+def signup_confirmation(request):
+    """Render the signup confirmation page."""
+    return render(request, 'signup_confirmation.html')
 
 @login_required
 def profile(request):
