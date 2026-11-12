@@ -803,10 +803,6 @@ Feature: Available booking slots are temporarily held while the customer complet
 
 This feature was considered a could-have, a good addition but not necessary. Given limited timing, I did not manage to add it in.
 
-## Testing evaluation
-## Final checks
-
-
 # Deployment
 
 ## GitHub Pages Deployment

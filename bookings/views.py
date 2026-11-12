@@ -224,7 +224,7 @@ def create_booking(request):
 
             # Create the confirmed booking with the customer, allocated
             # table, selected date and time, and party size.
-            Booking.objects.create(
+            booking = Booking.objects.create(
                 user=request.user,
                 table=table,
                 booking_date=booking_date,
@@ -235,7 +235,10 @@ def create_booking(request):
                 special_requests=special_requests,
             )
         # Redirect the customer to their profile after booking.
-        return redirect("profile")
+        return redirect(
+            "booking_confirmation",
+            booking_id=booking.id
+        )
 
     # Display an empty booking page when the customer first visits it.
     return render(request, "booking_page.html")
@@ -501,3 +504,18 @@ def cancel_booking(request, booking_id):
     return render(request, "cancel_booking.html", {
         "booking": booking,
     })
+
+@login_required
+def booking_confirmation(request, booking_id):
+    """Render the booking confirmation page for the logged-in customer."""
+    booking = get_object_or_404(
+        Booking,
+        pk=booking_id,
+        user=request.user
+    )
+
+    return render(
+        request,
+        "booking_confirmation.html", 
+        {"booking": booking}
+    )

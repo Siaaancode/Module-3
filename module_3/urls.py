@@ -51,6 +51,11 @@ urlpatterns = [
         name='booking_page'
     ),
     path(
+        "booking-confirmation/<int:booking_id>/",
+        index_views.booking_confirmation,
+        name="booking_confirmation"
+    ),
+    path(
         'menu/',
         index_views.menu,
         name='menu'
