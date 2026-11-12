@@ -523,6 +523,12 @@ The user foreign key uses on_delete=models.CASCADE, meaning that deleting a user
 
 The booking date and time fields can also be empty at database level. The application is responsible for validating the booking details before accepting a reservation.
 
+## Entity Relationship Diagram (ERD)
+
+The entity relationship diagram illustrates the database structure used by the Kokoro booking system. It identifies the three main entities — User, Booking and Table — and demonstrates how they are connected through primary and foreign keys. This structure supports customer reservations while maintaining clear relationships and data integrity.
+
+![Entity Relationship Diagram](/bookings/static/images/entity_relationship_diagram/entity_relationship_diagram.png)
+
 ### Booking Status Choices
 
 The Booking model uses predefined status choices to represent the state of a reservation.
@@ -1089,6 +1095,20 @@ Although the original goals did not fundamentally change, the project evolved to
 
 #### Desktop
 ![Profile page](/bookings/static/images/final_screenshots/profile_page/desktop_screensize_profile_page.png)
+
+### Error 404 page screenshots
+
+#### Mobile
+![Error 404 page](/bookings/static/images/final_screenshots/error_404_page/mobile_screensize_error_404_page.png)
+
+#### Tablet
+![Error 404 page](/bookings/static/images/final_screenshots/error_404_page/tablet_screensize_error_404_page.png)
+
+#### Laptops
+![Error 404 page](/bookings/static/images/final_screenshots/error_404_page/laptop_and_larger_screensize_error_404_page.png)
+
+#### Desktop
+![Error 404 page](/bookings/static/images/final_screenshots/error_404_page/desktop_screensize_error_404_page.png)
 
 # Credits
 
