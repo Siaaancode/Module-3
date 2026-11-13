@@ -7,3 +7,6 @@ staticfiles/
 node_modules/*
 coverage/
 npm-debug.log*
+*.sqlite3
+*.db
+*.py[cod]
