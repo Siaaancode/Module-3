@@ -100,7 +100,7 @@
             </ul>
         </div>
 
-        <form method="POST" class="cancel-btn">
+        <form method="POST" class="cancel-btn" aria-label="Confirm booking cancellation">
             {% csrf_token %}
             <button type="submit" class="btn btn-danger">
                 Yes, Cancel Booking

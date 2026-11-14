@@ -99,7 +99,7 @@
             <p id="selected-date" aria-live="polite"> No date selected yet. </p>
             <hr>
 
-            <form method="POST" action="{% url 'booking_page' %}">
+            <form method="POST" action="{% url 'booking_page' %}" aria-label="Booking form on booking page">
                 {% csrf_token %}
 
                 <input type="hidden" id="booking_date" name="booking_date">
