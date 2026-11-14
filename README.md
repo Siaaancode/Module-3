@@ -656,6 +656,96 @@ W3C CSS validator - Passed
 
 ![styles.css](/bookings/static/images/css_w3c_validator/css_w3c_validator_styles.png)
 
+## JsLint
+
+![Jslint](/bookings/static/images/jslint_passing_screenshots/jslint_passing_screenshot_for_javascript.png)
+
+Adjustments made to my code inorder to pass JSLint standards:
+
+1. Added global document, window, Option, URL, fetch, console, FullCalendar to beginning of scripts.js file:
+
+I added a global declaration comment at the beginning of the JavaScript file to inform JSLint which global variables were being used. This allowed the linter to recognise the externally defined variables and functions, resolving the majority of the warnings and improving the overall code validation.
+
+2. Changed:
+ ```
+    if(!response.ok) {
+        throw new Error("Could not load availability.")
+        );
+    }
+```
+to:
+```
+    if (!response.ok) {
+        return Promise.reject(
+            new Error("Could not load availability.")
+        );
+    }
+```
+
+JSLint flagged the original code because it expected a different approach to error handling. I replaced the throw statement with Promise.reject(), which explicitly rejects the promise when the HTTP response is unsuccessful, allowing the error to be handled by the existing catch block.
+
+3. Rearranging the code stucture:
+
+The original code structure caused JSLint errors because the dateClick function was incorrectly positioned outside the FullCalendar configuration object. I corrected the structure to ensure it followed the correct order and syntax. I also identified and removed duplicate code to improve readability, maintainability and overall code quality.
+
+To resolve this, I change my code from this:
+
+```
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+
+        initialView: "dayGridMonth",
+        height: "auto",
+
+        validRange: {
+            start: new Date().toISOString().slice(0, 10)
+        },
+
+        dateClick: function (info) {
+            calendarEl.querySelectorAll(".selected-date-cell").forEach(
+                function (cell) {
+                    cell.classList.remove("selected-date-cell");
+                }
+            );
+
+            info.dayEl.classList.add("selected-date-cell");
+
+            bookingDateInput.value = info.dateStr;
+            selectedDateEl.textContent =
+                "Selected date: " + info.dateStr;
+
+            // Load available booking times for the selected date.
+            loadAvailableTimes();
+        }
+    });
+```
+To this:
+```
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+
+        dateClick: function (info) {
+            calendarEl.querySelectorAll(".selected-date-cell").forEach(
+                function (cell) {
+                    cell.classList.remove("selected-date-cell");
+                }
+            );
+
+            info.dayEl.classList.add("selected-date-cell");
+
+            bookingDateInput.value = info.dateStr;
+            selectedDateEl.textContent = "Selected date: " + info.dateStr;
+
+            loadAvailableTimes();
+        },
+
+        height: "auto",
+        initialView: "dayGridMonth",
+
+        validRange: {
+            start: new Date().toISOString().slice(0, 10)
+        }
+    });
+```
+
 ## DevTools
 ### Lighthouse
 

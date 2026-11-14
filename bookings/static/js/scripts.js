@@ -115,9 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
             // Stores and displays the selected date.
             bookingDateInput.value = info.dateStr;
             selectedDateEl.textContent = "Selected date: " + info.dateStr;
-            bookingDateInput.value = info.dateStr;
-
-            selectedDateEl.textContent = "Selected date: " + info.dateStr;
 
             // Load available booking times for the selected date.
             loadAvailableTimes();
