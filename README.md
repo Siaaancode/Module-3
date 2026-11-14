@@ -430,6 +430,24 @@ White - #FFFFFF
 Black - #000000
 Red - #ff0000
 
+## Webaim colour contrast accessability
+
+### WebAIM Colour Contrast Accessibility
+
+I used the WebAIM Colour Contrast Checker to assess the contrast between the main colours used throughout the Kokoro website: white, black and red. I tested each colour combination (white and black, white and red, and red and black) to ensure that text remains readable against its background and that the colour scheme meets accessibility guidelines. These checks help ensure that users, including those with visual impairments or colour vision deficiencies, can navigate and understand the website more easily. The results were used to inform my colour choices and maintain a consistent design without compromising readability.
+
+![White and black](/bookings/static/images/webaim_colour_contrast/webaim_colour_contrast_white_black.png)
+
+The white and black colour combination passed all accessibility checks, demonstrating strong contrast and good readability. This combination provides a clear distinction between text and background, making it suitable for standard-sized text and other website elements.
+
+![White and red](/bookings/static/images/webaim_colour_contrast/webaim_colour_contrast_white_red.png)
+
+The white and red combination did not pass all accessibility requirements. However, it passed WCAG AA for large text, as well as the requirements for graphical objects and user interface components. This indicates that the combination may be suitable for larger text and certain interface elements, but should be avoided for smaller body text.
+
+![Red and black](/bookings/static/images/webaim_colour_contrast/webaim_colour_contrast_red_black.png)
+
+The red and black combination passed all accessibility checks except WCAG AAA. This demonstrates that it provides sufficient contrast for the applicable lower-level requirements, although it does not meet the highest accessibility standard. This combination can therefore be used for website elements where the relevant contrast requirements are satisfied.
+
 ## Typography
 
 For the typography I have chosen GoogleFont' Work Sans (https://fonts.google.com/specimen/Work+Sans?previewlayout=grid&lang=en_Latn&preview.script=Latn&preview.lang=en_Latn). For a secondary font, I will be using monospace as a backup in case the google font fails to load.
