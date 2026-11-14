@@ -1,4 +1,5 @@
-/* Scripts for FullCalendar */
+/*global document, window, Option, URL, fetch, console, FullCalendar*/
+/*Scripts for FullCalendar*/
 
 document.addEventListener("DOMContentLoaded", function () {
     const calendarEl = document.getElementById("calendar");
@@ -51,7 +52,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Handle unsuccessful HTTP responses.
             if (!response.ok) {
-                throw new Error("Could not load availability.");
+                return Promise.reject(
+                    new Error("Could not load availability.")
+                );
             }
 
             // Convert the server's JSON response into a JavaScript object.
@@ -96,14 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Create the FullCalendar month view inside the calendar element.
     const calendar = new FullCalendar.Calendar(calendarEl, {
-        // Display the calendar by month when it first loads.
-        initialView: "dayGridMonth",
-        height: "auto",
-
-        // Prevent customers from selecting dates in the past.
-        validRange: {
-            start: new Date().toISOString().slice(0, 10)
-        },
 
         // Handle a customer clicking on a calendar date.
         dateClick: function (info) {
@@ -119,14 +114,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Stores and displays the selected date.
             bookingDateInput.value = info.dateStr;
-            selectedDateEl.textContent =
-                "Selected date: " + info.dateStr;
+            selectedDateEl.textContent = "Selected date: " + info.dateStr;
             bookingDateInput.value = info.dateStr;
 
             selectedDateEl.textContent = "Selected date: " + info.dateStr;
 
             // Load available booking times for the selected date.
             loadAvailableTimes();
+        },
+
+        // Display the calendar by month when it first loads.
+        height: "auto",
+        initialView: "dayGridMonth",
+
+        // Prevent customers from selecting dates in the past.
+        validRange: {
+            start: new Date().toISOString().slice(0, 10)
         }
     });
 
@@ -143,10 +146,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             // Display the selected date or prompt the customer to choose one.
-            selectedDateEl.textContent =
+            selectedDateEl.textContent = (
                 bookingDateInput.value
-                    ? "Selected date: " + bookingDateInput.value
-                    : "Please select a date.";
+                ? "Selected date: " + bookingDateInput.value
+                : "Please select a date."
+            );
 
             // Refresh available times for the new date.
             loadAvailableTimes();
