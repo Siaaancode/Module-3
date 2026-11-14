@@ -58,7 +58,7 @@
                             <li class="nav-item">
                                 <form method="POST" action="{% url 'logout' %}">
                                     {% csrf_token %}
-                                    <button class="nav-link" type="submit">
+                                    <button class="nav-link" type="submit" aria-label="Log out of your account">
                                         Log Out
                                     </button>
                                 </form>

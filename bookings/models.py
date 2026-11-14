@@ -60,7 +60,7 @@ class Booking(models.Model):
         default=2
     )
 
-    # Allos customers to add any special requests or dietary requirements for their booking.
+    # Allows customers to add any special requests or dietary requirements for their booking.
     special_requests = models.TextField(
         max_length=500,
         blank=True,
@@ -74,7 +74,7 @@ class Booking(models.Model):
 
     # Track the current status of the reservation.
     status = models.CharField(
-     max_length=20,
+        max_length=20,
         choices=STATUS_CHOICES,
         default='confirmed'
     )
