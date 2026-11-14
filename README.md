@@ -832,69 +832,106 @@ This feature was considered a could-have, a good addition but not necessary. Giv
 
 # Deployment
 
-## GitHub Pages Deployment
-
-### How to run this project locally
+### How to run locally
 
 1. Clone the repository:
 
-git clone https://github.com/Siaaancode/Module-3.git
+``` git clone https://github.com/Siaaancode/Module-3.git ```
 
 2. Navigate to the project directory:
 
-cd Module-3
+``` cd Module-3 ```
 
-3. Create and activate a Python virtual environment.
+3. Create and activate a virtual environment:
+On macOS/Linux:
+
+``` python3 -m venv .venv ```
+
+``` source .venv.bin/activate ```
+
+On Windows:
+
+``` python -m venv .venv ```
+
+``` .venv/Scripts/activate ```
 
 4. Install the project dependencies:
 
-pip install -r requirements.txt
+``` pip install -r requirements.txt ```
 
-5. Configure the required environment variables, including the Django secret key and database connection string. Do not commit secrets to GitHub.
+5. Configure environment variables:
+Set the required environment variables for the application, including the Django secret key and database connection string. These values must be configured locally and should never be committed to the GitHub repository.
 
 6. Apply database migrations:
 
-python manage.py migrate
+``` python manage.py migrate ```
 
 7. Start the development server:
 
-python manage.py runserver
+``` python manage.py runserver ```
 
-8. Open the local address displayed in the terminal to access the application.
-
-### Steps to deploy this website
-
-- Open GitHub, log in/sign up and create a repository.
-- Open the terminal in the IDE and link it to your GitHub account. 
-- Then copy the repository information from GitHub to the IDE. This will link them together. 
-- Commit your project with commands through the terminal and push them.
-- Go back to GitHub and click the settings button, then the pages option.
-- Ensure the Source is set to 'Deploy from a branch' and Branch is set to 'main' and '/(root)'
-- Once completed, a link at the top of that page will become available. Simply click it, and it will open a new tab of the deployed site. (https://github.com/Siaaancode/Module-3)
+8. Access the application:
+Open the local address displayed in the terminal, usually http://127.0.0.1:8000/, in your web browser.
 
 ## Heroku Deployment
 
-### How to deploy on Heroku
+The Kokoro restaurant booking system is deployed using Heroku. The application uses Django to manage the backend and booking functionality, Neon to provide the PostgreSQL database, and WhiteNoise to serve static files in the production environment.
 
-The Kokoro restaurant booking system is deployed using Heroku. The application uses Django for the backend, Neon for the PostgreSQL database, and WhiteNoise to serve static files.
+### Deployment process
 
-To deploy the application, follow these steps:
+The following steps outline how the application is prepared and deployed:
 
-1. Prepare the project: Ensure the Django application runs locally and that the required dependencies are listed in requirements.txt.
+1. Prepare the project
 
-2. Configure the Python version: Create a .python-version file in the project root and specify the Python version used by the application.
+Ensure the application runs correctly in the local development environment and that all required Python packages are included in requirements.txt.
 
-3. Configure the application server: Create a Procfile in the project root to tell Heroku how to start the Django application using Gunicorn.
+2. Configure the Python version
 
-4. Configure environment variables: Set the required environment variables in Heroku, including the database connection string and Django secret key. Keep sensitive credentials out of the Git repository.
+Create a .python-version file in the project root and specify the Python version used by the application. This helps ensure Heroku uses a compatible runtime.
 
-5. Configure static files: Configure Django's static file settings and WhiteNoise so that CSS, JavaScript and other static assets can be served in production.
+3. Configure the application server
 
-6. Set up the database: Configure the application to connect to the Neon PostgreSQL database and apply any outstanding database migrations.
+Include a Procfile in the project root to specify how Heroku should start the Django application using Gunicorn.
 
-7. Deploy the application: Commit the project changes to Git and push the code to the Heroku deployment branch, or trigger a deployment through the connected GitHub repository.
+4. Configure environment variables
 
-8. Verify the deployment: Open the deployed website and test the main functionality, including account registration, login, booking creation, booking editing, cancellation and static file loading.
+Set the required environment variables through the Heroku application settings. These include the Django secret key and Neon PostgreSQL database connection string. Sensitive credentials should be stored securely and excluded from version control.
+
+5. Configure static files
+
+Configure Django's static file settings and WhiteNoise middleware to ensure that CSS, JavaScript and image assets are collected and served correctly in production.
+
+6. Connect the database
+
+Configure the application to connect to the Neon PostgreSQL database and ensure that all required database migrations have been applied.
+
+7. Deploy the application
+
+Commit and push the latest project changes to the configured Heroku deployment source. Deployment can be managed through the Heroku CLI or an existing GitHub integration, depending on the deployment method configured.
+
+8. Verify the deployment
+
+Once deployment is complete, access the live website and check that the application is functioning as expected.
+
+### Post-deployment testing
+
+The following functionality should be checked in the production environment:
+
+- User registration and account creation.
+
+- User login and logout.
+
+- Creating a restaurant booking.
+
+- Viewing existing bookings through the profile page.
+
+- Editing and cancelling bookings.
+
+- Booking availability and prevention of overlapping reservations.
+
+- Correct loading of CSS, JavaScript and images.
+
+- Navigation links and custom error pages.
 
 ## Bugs Discovered
 
