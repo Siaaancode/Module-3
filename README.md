@@ -1,6 +1,6 @@
 # Module-3 Kokoro Restaurant
 
-This project is my final submission for the Module 3 unit of my Web Development course at South Staffordshire College.
+This project is my final submission for the Module 3 unit of my Web Development course, at South Staffordshire College.
 
 Links to GitHub profile and Heroku:
 
@@ -19,25 +19,36 @@ Links to GitHub profile and Heroku:
 5. [Structure](#website-structure)
 6. [Skeleton](#website-skeleton)
 7. [Surface](#website-surface)
-8. [Technologies used](#technologies-used) 
-9. [Testing](#testing)
-10. [Deployment](#deployment)
+8. [Technologies used](#technologies-used)
+9. [Database Schema](#database-schema)
+10. [ERD diagram](#entity-relationship-diagram-erd)
+11. [Testing](#testing)
+12. [Deployment](#deployment)
+13. [Bugs](#bugs-discovered)
+14. [Project Evaluation](#project-evaluation)
+15. [Credits](#credits)
 
 # Project Description
 
-This project is being developed to help businesses manage customer bookings in a reliable and organised manner. By creating an easy-to-use and well-structured program, businesses will be able to manage their bookings more efficiently, reducing the risk of overbooking, missed appointments, and unexpected changes. The program will provide a simple and intuitive interface that is easy for users to navigate and understand, helping businesses keep track of their customer bookings with less stress.
+Kokoro is a Japanese restaurant booking application, developed to provide customers with a convenient and reliable way to make and manage restaurant reservations online.
+
+The application primarily targets customers who want to reserve tables without needing to contact the restaurant directly. It also provides restaurant staff with a simple way to view and manage reservation information.
+
+Kokoro faces these challenges by allowing customers to register, check available booking times, create reservations, view existing bookings, make amendments and cancel reservations. By using Django and a relational database, the application checks table capacity and existing reservations to identify suitable tables and prevent overlapping bookings.
+
+The overall aim, is to simplify the reservation process for customers, while providing a more organised and reliable approach to restaurant booking management.
 
 # Website Strategy
 
-The strategy of this project is to develop a user-friendly and intuitive table booking system that provides users with an easy and efficient way to create and manage bookings. The primary users of the program will be businesses and the staff responsible for managing their reservations, as well as customers who are looking to visit the business. The project will be specifically targeted towards restaurants, but the program could also be adapted for other businesses that require a booking system, such as hairdressers, barbers, heritage sites, and other visitor attractions.
+The strategy of this project is to develop a user-friendly and intuitive restaurant booking system that provides customers with a simple and efficient way to create and manage reservations. The primary users of the application will be customers wishing to make bookings, while restaurant staff and administrators will be able to manage reservation and table information separately through Django Admin.
 
-The booking system will be presented in a simple and easy-to-understand format, allowing customers to quickly and efficiently make reservations. The main information users will be required to enter will be the number of people in their booking, along with their preferred date and time.
+Although the application is specifically designed for restaurants, its underlying booking functionality could potentially be adapted for other businesses that require a reservation system, such as hairdressers, barbers, heritage sites and visitor attractions.
 
-Once this information has been submitted, the user will have a limited amount of time to enter their personal details and confirm the booking. The selected time slot will be temporarily held during this process, preventing another customer from booking the same slot before the first user has completed their reservation. This will provide a better user experience by reducing the risk of double bookings and preventing customers from losing their selected time slot while entering their details.
+The booking system will feature a straightforward and accessible interface, allowing customers to make reservations with minimal difficulty. Customers will be able to select their preferred booking date and time, specify the number of guests and provide the necessary personal information when registering or making a reservation, including their first name, last name and email address.
 
-Python will be used as the main programming language to create the functionality and logic required for the program to operate as expected.
+An intended feature of the booking process is to introduce a temporary hold on selected time slots while customers complete their reservation details. This would help prevent multiple customers from attempting to reserve the same availability simultaneously, reducing the risk of double bookings and improving the overall booking experience.
 
-Django will be used as the web framework for developing the application and managing the database. It will allow the system to securely store and manage important booking information, including customer reservations and available time slots for the business.
+Python will be used as the primary programming language to develop the application's functionality and booking logic. Django will provide the web framework and tools required to build the application, manage user authentication and interact with the database. Together, these technologies will allow the system to store and manage customer accounts, restaurant tables and booking information, while checking table capacity and existing reservations to help prevent booking conflicts.
 
 ## Project Goals
 
@@ -55,14 +66,6 @@ Django will be used as the web framework for developing the application and mana
 
 ### Must-have
 
-"As an employee, I need to be able to view all the bookings. This would help me organise and prepared for the day and future days."
-
-Feature: Staff can view current and upcoming reservations in an organised format.
-
-"As a employee, I need to be able to see the details of the bookings. This would help me organise the tables and ensure we have enough seats and staff available for how busy it might be."
-
-Feature: Staff can access important information such as the customer name, number of guests, date and booking time.
-
 "As a restaurant owner, I want to be sure that the restaurant is never overbooked. This would help me maintain a good reputation with customers and avoid disappointment."
 
 Feature: The system uses the restaurant's available capacity to prevent too many customers from being booked for the same time.
@@ -75,8 +78,6 @@ Feature: Customers can select the number of guests, date and time they want to b
 
 Feature: Customers receive a clear confirmation once their reservation has been successfully created.
 
-### Should-have
-
 "As a customer, it would be useful to be able to make special requests. This would be helpful so I could prepare the restaurant for any requests me and my party may have, leaving no room for issues on the day."
 
 Feature: Allow customers to add requests such as accessibility requirements, dietary information, or special occasions.
@@ -85,19 +86,29 @@ Feature: Allow customers to add requests such as accessibility requirements, die
 
 Feature: The system should clearly show which dates and times are available or unavailable.
 
-### Could-have
+### Should-have
 
 "As an employee, it would be really helpful if I could adjust the booking status. With the ability to manage the booking status, we could avoid confusion to if a table has arrived, placed their order, etc."
 
 Feature: Allow staff to mark bookings as confirmed, cancelled, completed, or no-show, placed order, etc.
 
-"As a customer, it would be really useful if there was a period of time where my booking is temporarily reserved while I'm filling out my details, so the slot doesn't get booked by someone else before me"
-
-Feature: Available booking slots are temporarily held while the customer completes their details, helping to prevent the same slot being booked by multiple customers.
-
 "As a customer, I might want to sit in a specific area of the restuarant. I would be nice to have the option."
 
 Feature: Allow customers to request a preferred seating area, such as indoor, outdoor, or window seating.
+
+### Could-have
+
+"As an employee, I need to be able to view all the bookings. This would help me organise and prepared for the day and future days."
+
+Feature: Staff can view current and upcoming reservations in an organised format.
+
+"As a employee, I need to be able to see the details of the bookings. This would help me organise the tables and ensure we have enough seats and staff available for how busy it might be."
+
+Feature: Staff can access important information such as the customer name, number of guests, date and booking time.
+
+"As a customer, it would be really useful if there was a period of time where my booking is temporarily reserved while I'm filling out my details, so the slot doesn't get booked by someone else before me"
+
+Feature: Available booking slots are temporarily held while the customer completes their details, helping to prevent the same slot being booked by multiple customers.
 
 ## Research
 
@@ -117,7 +128,7 @@ Booking System page
 
 - Simple and easy to navigate booking form:
     1. Previous days crossed off.
-    2. Any unavailble dates based on party size crossed off.
+    2. Any unavailable dates based on party size crossed off.
     3. Gives users the options to choose area they'd like to sit (where available).
     4. Gives additional information below booking section, that is useful for customers to know or be aware of.
     5. When user has chosen date, time, seating area a message appears informing the user of what time the table needs to be available after, ie, booking for 7:30pm, table needs to be returned by 9:15pm. 
@@ -131,7 +142,7 @@ Christmas page
 
 Standard Menu page
 
-- The menu of this restaurant does change frequenctly but they have offered a sample menu just to give users an idea of what they can expect.
+- The menu of this restaurant does change frequently but they have offered a sample menu just to give users an idea of what they can expect.
 
 2. What's bad?
 
@@ -204,22 +215,22 @@ Each user story has been labelled as either a must-have, should-have, or could-h
 ## Features
 ### Must-Have
 
-- Staff can view current and upcoming reservations in an organised format.
-- Staff can access important information such as the customer name, number of guests, date and booking time.
 - The system uses the restaurant's available capacity to prevent too many customers from being booked for the same time.
 - Customers can select the number of guests, date and time they want to book, as well as edit and delete anything they may have got wrong.
 - Customers receive a clear confirmation once their reservation has been successfully created.
+- Allow customers to add requests such as accessibility requirements, dietary information, or special occasions.
+- The system should clearly show which dates and times are available or unavailable.
 
 ### Should-Have
 
-- Available booking slots are temporarily held while the customer completes their details, helping to prevent the same slot being booked by multiple customers.
-- The system should clearly show which dates and times are available or unavailable.
+- Allow staff to mark bookings as confirmed, cancelled, completed, or no-show, placed order, etc.
+- Allow customers to request a preferred seating area, such as indoor, outdoor, or window seating.
 
 ### Could-Have
 
-- Allow staff to mark bookings as confirmed, cancelled, completed, or no-show, placed order, etc.
-- Allow customers to add requests such as accessibility requirements, dietary information, or special occasions.
-- Allow customers to request a preferred seating area, such as indoor, outdoor, or window seating.
+- Staff can view current and upcoming reservations in an organised format.
+- Staff can access important information such as the customer name, number of guests, date and booking time.
+- Available booking slots are temporarily held while the customer completes their details, helping to prevent the same slot being booked by multiple customers.
 
 ## How user features support user stories:
 
@@ -243,7 +254,7 @@ Giving customers control over these key booking details helps create a positive 
 
 6. Customers receive a clear confirmation once their reservation has been successfully created.
 
-The system will automatically send a confirmation email and/or message to the customer, providing reassurance that their reservation has been successfully secured. This can improve the overall user experience by giving customers a clear record of their booking and reducing uncertainty.
+The system will automatically send a confirmation message to the customer, providing reassurance that their reservation has been successfully secured. This can improve the overall user experience by giving customers a clear record of their booking and reducing uncertainty.
 
 7.  Available booking slots are temporarily held while the customer completes their details, helping to prevent the same slot being booked by multiple customers.
 
@@ -289,6 +300,12 @@ When users are ready to make a reservation, they can select the Booking option f
 
 Once the booking has been successfully completed, users will receive a booking confirmation containing their reservation details. This allows them to check that the information is correct and provides a reminder of their upcoming visit. Users will also be able to edit or cancel their reservation if their plans change.
 
+### User Journey flowchart
+
+This flow chart represents the journey of a user that is specifically trying to make a booking.
+
+![User journey flowchart](/bookings/static/images/user_journey_flowchart/user_journey_flow_chart.png)
+
 # Website Skeleton
 ## Wireframes
 
@@ -321,7 +338,6 @@ The About Us and Contact sections will be included to provide essential restaura
 
 Overall, the wireframe will focus on establishing a clear visual hierarchy, maintaining consistency and providing an accessible, user-friendly starting point for visitors to the website.
 
-
 ### Menu Page
 
 #### Mobile screensize
@@ -338,7 +354,6 @@ The menu page will be designed to present the restaurant's food offerings in a c
 The menu will be organised into clearly defined sections, with headings to distinguish between different food categories. This structure will aim to make dishes easy to locate while avoiding an overcrowded layout. The wireframe will focus on arranging the content in a logical order, ensuring that users can browse the menu without feeling overwhelmed.
 
 The page will aim to give customers a convenient way to explore the restaurant's offerings before making a reservation. By prioritising readability, simple navigation and a consistent design, the proposed layout will support an accessible and user-friendly experience.
-
 
 ### Booking Page
 
@@ -368,56 +383,17 @@ The booking system will be designed to check table availability and prevent over
 
 Overall, the wireframe will prioritise usability, clear communication and efficient booking management. The aim will be to create a straightforward booking experience for customers while supporting restaurant staff in managing table availability.
 
-
 ### Error 404 page
 
 ![Error404](/bookings/static/images/wireframes/error_404/wireframe_404_page.png)
 
 The 404 error page wireframe was intentionally kept simple, as its primary purpose is to clearly communicate that the requested page could not be found while providing users with a straightforward way to navigate back to the home page. The minimal layout helps keep the message clear and avoids unnecessary distractions during the error experience.
 
-
-## Page layout and Interface elements
-
-### Homepage
-
-#### Navigation Bar
-
-#### Hero Banner
-
-#### About Us Section
-
-#### Contact Us
-
-#### Footer
-
-
-### Menu page
-
-
-### Login page
-
-
-### Sign up page
-
-
-### Booking page
-
-
-### User Profile
-
-#### Edit booking
-
-#### Cancel booking
-
-
-### Error 404 page
-
-
 ## Responsiveness
 
 Responsive design is an essential industry standard, ensuring that users have a consistent experience across all device sizes. This web application was developed with accessibility as a key priority, following a mobile-first approach. The layout and interface were designed for smaller screens initially, before being progressively enhanced and adapted for larger devices.
 
-All pages of the application achieve a Lighthouse accessibility score of 100, demonstrating a strong commitment to inclusive design and adherence to recognised web accessibility best practices.
+Most pages of the application achieve a Lighthouse accessibility score of 100, demonstrating a strong commitment to inclusive design and adherence to recognised web accessibility best practices.
 
 # Website Surface
 ## Design Choice
@@ -582,39 +558,50 @@ Together, these models and validation rules provide the foundation for managing 
 
 # Testing
 
-# Manual/Automated Testing
+# Automated Testing
 
-## Jest (Javascript testing)
+## Jest (Automated Javascript testing)
 
-![Jest Tests](/bookings/static/images/tests/jest_test.png)
+![Jest Tests](/bookings/static/images/tests_images/jest_test.png)
 
-1. initialises and renders the calendar.
-2. selecting a date updates the date input and text.
-3. does not initialise when required elements are missing.
-4. loads available booking times successfully.
-5. displays a message when no booking times are available.
-6. displays an error message when the request fails.
-7. reloads availability when the guest count changes.
-8. prompts the customer to select a date when no date is selected.
-9. disables the dropdown while availability is loading.
+| Test | Expected result | Actual result | Status |
+| --- | --- | --- | --- |
+| Initialises and renders the calendar. | The calendar should initialise successfully and display the booking calendar when the page loads. | The calendar initialises correctly and renders within the designated calendar element. | Passed |
+| Selecting a date updates the date input and text. | Selecting a date should update the hidden booking date input and display the selected date to the customer. | The selected date is correctly stored in the booking date input and displayed on the page. | Passed |
+| Does not initialise when required elements are missing. | The calendar should not initialise if essential HTML elements are missing, preventing JavaScript errors. | The initialisation process stops when required elements cannot be found. | Passed |
+| Loads available booking times successfully. | The system should retrieve available booking times from the availability endpoint and display them in the time dropdown. | Available booking times are successfully retrieved and displayed in the dropdown. | Passed |
+| Displays a message when no booking times are available. | The customer should be informed when no booking times are available for the selected date and party size. | A message is displayed informing the customer that no booking times are available. | Passed |
+| Displays an error message when the request fails. | If the availability request fails, the customer should receive an appropriate error message. | An error message is displayed when the availability request encounters a network or server error. | Passed |
+| Reloads availability when the guest count changes. | Changing the number of guests should trigger another availability request using the updated party size. | Availability is requested again when the guest count changes, ensuring the displayed times reflect the selected party size. | Passed |
+| Prompts the customer to select a date when no date is selected. | The time dropdown should prompt the customer to select a date before attempting to retrieve available booking times. | A prompt is displayed asking the customer to select a date before checking availability. | Passed |
+| Disables the dropdown while availability is loading. | The time dropdown should be disabled while the availability request is being processed to prevent premature selections. | The dropdown is disabled during the loading process and becomes available again once the request has completed. | Passed |
 
 
-## Automated testing using Django's built-in testing framework
 
-![Django Tests](/bookings/static/images/tests/django_tests.png)
+## Django's built-in testing framework (Automated testing)
 
-1. Check that customers must log in to book.
-2. Check that customers must log in to view their profile.
-3. Check that a valid booking saves the correct details.
-4. Check that overlapping bookings cannot use the same table.
-5. Check that cancellation releases a table.
-6. Check that customers cannot edit other people's bookings.
-7. Check that customers cannot cancel other people's bookings.
-8. Check that bookings cannot be made for past dates.
-9. Check that bookings cannot start before opening.
-10. Check that an oversized party cannot book a table.
-11. Check that inactive tables are excluded from bookings.
-12. Check that cancelled bookings no longer block availability.
+![Django Tests](/bookings/static/images/tests_images/django_tests.png)
+
+. = Test passed
+F = Test failed
+E = Test encountered an error
+OK = Tests passed
+
+| Test | Expected result | Actual result | Status |
+| --- | --- | --- | --- |
+| Check that customers must log in to book. | Unauthenticated users should be redirected to the login page when attempting to make a booking. | The login requirement prevents unauthenticated users from accessing the booking functionality. | Passed |
+| Check that customers must log in to view their profile. | Unauthenticated users should be redirected to the login page when attempting to access their profile. | The login requirement prevents unauthenticated users from viewing the profile page. | Passed |
+| Check that a valid booking saves the correct details. | A valid booking should be saved to the database with the correct customer, date, time, number of guests and allocated table. | The booking is successfully saved to the database with the submitted details and an allocated table. | Passed |
+| Check that overlapping bookings cannot use the same table. | The system should prevent two confirmed bookings from using the same table during overlapping time periods. | The system checks existing confirmed bookings and prevents an overlapping reservation from using the same table. | Passed |
+| Check that cancellation releases a table. | Cancelling a booking should make the allocated table available for another reservation. | Once a booking is cancelled, it no longer prevents the table from being allocated to another booking. | Passed |
+| Check that customers cannot edit other people's bookings. | Customers should not be able to access or modify bookings belonging to another user. | The system returns a 404 response when a customer attempts to edit another user's booking. | Passed |
+| Check that customers cannot cancel other people's bookings. | Customers should not be able to cancel bookings belonging to another user. | The system returns a 404 response when a customer attempts to cancel another user's booking. | Passed |
+| Check that bookings cannot be made for past dates. | The system should reject reservations with a date earlier than the current date. | The system validates the selected date and rejects bookings for dates in the past. | Passed |
+| Check that bookings cannot start before opening. | The system should reject booking times earlier than the restaurant's opening time of 12:00. | The booking validation prevents customers from selecting a time before the restaurant opens. | Passed |
+| Check that an oversized party cannot book a table. | The system should prevent reservations when no active table has enough seats for the requested party size. | The system checks table capacity and does not allocate a table when no suitable table is available. | Passed |
+| Check that inactive tables are excluded from bookings. | Inactive tables should not be considered when allocating a table to a reservation. | The table allocation query only considers active tables, excluding inactive tables from the booking process. | Passed |
+| Check that cancelled bookings no longer block availability. | Cancelled bookings should not prevent another customer from booking the same table and time slot. | The availability check excludes cancelled bookings, allowing the table to become available again. | Passed |
+
 
 ## W3C Validators (HTML and CSS)
 
@@ -755,36 +742,93 @@ Homepage
 
 ![Home page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_home_page.png)
 
+| Category | Score |
+| --- | --- |
+| Performance | 74 |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 91 |
+
 Menu page
 
 ![Menu page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_menu_page.png)
+
+| Category | Score |
+| --- | --- |
+| Performance | 98 |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 90 |
 
 Login page
 
 ![Login page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_login_page.png)
 
+| Category | Score |
+| --- | --- |
+| Performance | 98 |
+| Accessibility | 98 |
+| Best Practices | 100 |
+| SEO | 90 |
+
 Sign up page
 
 ![Sign up page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_sign_up_page.png)
+
+| Category | Score |
+| --- | --- |
+| Performance | 93 |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 90 |
 
 Profile page
 
 ![Profile page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_profile_page.png)
 
+| Category | Score |
+| --- | --- |
+| Performance | 91 |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 90 |
+
 Booking page
 
 ![Booking page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_booking_page.png)
+
+| Category | Score |
+| --- | --- |
+| Performance | 82 |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 90 |
 
 Edit booking page
 
 ![Edit booking page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_edit_booking_page.png)
 
+| Category | Score |
+| --- | --- |
+| Performance | 91 |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 90 |
+
 Cancel booking page
 
 ![Cancel booking page](/bookings/static/images/devtools_lighthouse/devtools_lighthouse_cancel_booking_page.png)
 
+| Category | Score |
+| --- | --- |
+| Performance | 91 |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 90 |
 
-## Testing User Stories
+# Manual
+
+## Testing implemented User Stories
 
 1. "As a restaurant owner, I want to be sure that the restaurant is never overbooked. This would help me maintain a good reputation with customers and avoid disappointment."
 
@@ -893,11 +937,9 @@ This approach also avoids adding unnecessary form fields while allowing customer
 
 By combining these two user stories, I was able to achieve both objectives through one straightforward feature without restricting the information customers can provide.
 
-
-## User Stories that didn't get created
+## User Stories that weren't implemented
 
 During the creation of this project, I realised I took on too much work and couldn't create the back-end management system for staff like I wanted to, therefore I didn't complete these user stories:
-
 
 1. "As an employee, I need to be able to view all the bookings. This would help me organise and prepared for the day and future days."
 
@@ -913,12 +955,22 @@ Feature: Allow staff to mark bookings as confirmed, cancelled, completed, or no-
 
 My intention with the above user stories was to create a functioning and easy to navigate system, that staff could use to view, edit and orginise bookings. This would have given them all the information they need about the booking, including names, dates, times, special requirements, etc. as well as allowing staff to mark the bookings into categories.
 
-
 4. "As a customer, it would be really useful if there was a period of time where my booking is temporarily reserved while I'm filling out my details, so the slot doesn't get booked by someone else before me"
 
 Feature: Available booking slots are temporarily held while the customer completes their details, helping to prevent the same slot being booked by multiple customers.
 
 This feature was considered a could-have, a good addition but not necessary. Given limited timing, I did not manage to add it in.
+
+## Research implementation
+
+My research into existing restaurant websites, such as Wangsnoods and Pasture, has helped shape the development of my project by improving my understanding of effective UX design and identifying key features that contribute to a positive customer experience. This research has influenced my design decisions and helped me determine which features would be most valuable to include in my own booking system.
+
+| Research finding | Design decision | Final outcome |
+| --- | --- | --- |
+| Simple booking interface | Use FullCalendar for date selection | Implemented|
+| Clear booking availability | Retrieve available times dynamically | Implemented |
+| Temporary booking holds | Considered a five-minute hold | Not implemented |
+| Seating preferences | Use an optional special requests field | Implemented differently |
 
 # Deployment
 

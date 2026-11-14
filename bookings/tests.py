@@ -73,7 +73,7 @@ class BookingViewTests(TestCase):
             },
         )
 
-        self.assertRedirects(response, reverse("profile"))
+        self.assertRedirects(response, reverse("booking_confirmation", args=[1]))
 
         booking = Booking.objects.get(user=self.customer)
 
