@@ -972,6 +972,39 @@ My research into existing restaurant websites, such as Wangsnoods and Pasture, h
 | Temporary booking holds | Considered a five-minute hold | Not implemented |
 | Seating preferences | Use an optional special requests field | Implemented differently |
 
+
+## Validation Testing
+
+### Sign up
+
+![Username](/bookings/static/images/tests_images/validation_tests/signup_validation/signup_username_validation_test.png)
+![First name](/bookings/static/images/tests_images/validation_tests/signup_validation/signup_first_name_validation_test.png)
+![Last name](/bookings/static/images/tests_images/validation_tests/signup_validation/signup_last_name_validation_test.png)
+![Email](/bookings/static/images/tests_images/validation_tests/signup_validation/signup_email_address_validation_test.png)
+![Password](/bookings/static/images/tests_images/validation_tests/signup_validation/signup_password_validation_test.png)
+![Password Confirmation](/bookings/static/images/tests_images/validation_tests/signup_validation/signup_password_confirmation_validation_test.png)
+
+The screenshots above demonstrate the manual testing of the sign-up form's validation. Each image provides evidence that users cannot successfully register unless all required fields are completed correctly and meet the specified validation requirements.
+
+### Login
+
+![Username](/bookings/static/images/tests_images/validation_tests/login_validation/login_valid_username_validation.png)
+![Password](/bookings/static/images/tests_images/validation_tests/login_validation/login_valid_password_validation.png)
+![User](/bookings/static/images/tests_images/validation_tests/login_validation/login_valid_user_validation.png)
+
+The screenshots above demonstrate the manual testing of the login form's validation. The first two images show the validation feedback displayed when fields are left empty or invalid information is entered, while the final image demonstrates the response when incorrect login credentials are provided.
+
+### Booking
+
+![Booking no input](/bookings/static/images/tests_images/validation_tests/booking_validation/booking_no_input_provided_validation.png)
+![Booking no time](/bookings/static/images/tests_images/validation_tests/booking_validation/booking_no_time_provided_validation.png)
+
+The booking form's validation was manually tested to ensure that a booking cannot be submitted without the required information. When the form is submitted completely empty, a validation message is displayed, preventing the booking from being confirmed. 
+
+I also tested partially completed forms to ensure that users receive clear feedback identifying any missing information. This helps guide users through the booking process and ensures that all required fields are completed before submission.
+
+
+
 # Deployment
 
 ### How to run locally
