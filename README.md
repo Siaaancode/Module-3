@@ -972,7 +972,6 @@ My research into existing restaurant websites, such as Wangsnoods and Pasture, h
 | Temporary booking holds | Considered a five-minute hold | Not implemented |
 | Seating preferences | Use an optional special requests field | Implemented differently |
 
-
 ## Validation Testing
 
 ### Sign up
@@ -1003,13 +1002,27 @@ The booking form's validation was manually tested to ensure that a booking canno
 
 I also tested partially completed forms to ensure that users receive clear feedback identifying any missing information. This helps guide users through the booking process and ensures that all required fields are completed before submission.
 
-
-
 # Deployment
 
-### How to run locally
+## Steps to deploy this website
 
-1. Clone the repository:
+1.  Open GitHub, log in/sign up and create a repository.
+
+2. Open the terminal in the IDE and link it to your GitHub account.
+
+3.  Then copy the repository information from GitHub to the IDE. This will link them together. 
+
+4.  Commit your project with commands through the terminal and push them.
+
+5. Go back to GitHub and click the settings button, then the pages option.
+
+6.  Ensure the Source is set to 'Deploy from a branch' and Branch is set to 'main' and '/(root)'
+
+7. Once completed, a link at the top of that page will become available. Simply click it, and it will open a new tab of the deployed site. With this project, the link is to the Heroku deployed site.
+
+### How to run locally from GitHub:
+
+1. Go to GitHub and clone the repository:
 
 ``` git clone https://github.com/Siaaancode/Module-3.git ```
 
@@ -1022,7 +1035,7 @@ On macOS/Linux:
 
 ``` python3 -m venv .venv ```
 
-``` source .venv.bin/activate ```
+``` source .venv/bin/activate ```
 
 On Windows:
 
@@ -1035,6 +1048,7 @@ On Windows:
 ``` pip install -r requirements.txt ```
 
 5. Configure environment variables:
+
 Set the required environment variables for the application, including the Django secret key and database connection string. These values must be configured locally and should never be committed to the GitHub repository.
 
 6. Apply database migrations:
@@ -1046,6 +1060,7 @@ Set the required environment variables for the application, including the Django
 ``` python manage.py runserver ```
 
 8. Access the application:
+
 Open the local address displayed in the terminal, usually http://127.0.0.1:8000/, in your web browser.
 
 ## Heroku Deployment
