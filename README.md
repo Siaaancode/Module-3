@@ -1144,18 +1144,19 @@ fixed the issue.
 3. Error of only 1 available time showing on the booking: The issue was incorrect indentation on these lines of code in the views.py file.
 ``` current += interval and return JsonResponse({"times": times}) ```
 
-4. Exposure of secret key: Fixed by improving the management by moving the Django secret key into environment variables and addressing it exposure in a public repository.
+4. Secret Key exposure: The Django secret key was initially exposed in the public repository. I improved the security of the application by moving the key into an environment variable, preventing sensitive credentials from being stored directly in the source code. I also regenerated the key, removing the original exposed key.
 
-5. Fixed URL routing: Corrected navigation links and Django URL patterns that caused the sign up and menu page to return 404 errors.
+5. Fixed URL routing: Incorrect URL patterns and navigation links caused pages to return 404 errors. I corrected the URL configuration and updated the relevant links to ensure the pages could be accessed successfully.
 
-6. Static file issues: Invetigated and fixed CSS and Javascript loading issues affecting development and deployment.
+6. Static file issues: CSS and JavaScript files were not loading correctly in certain environments. I investigated the issue using browser developer tools and corrected the static file configuration to ensure assets were served correctly during development and production.
 
-7. Invalid required attribute on a hidden input: Identified that required cannot be used on the hidden booking_date input and removed it.
+7. Invalid required attribute on a hidden input: The required attribute had been applied to a hidden booking date input. As hidden inputs cannot use standard browser validation in this way, I removed the attribute and ensured that booking date validation was handled appropriately.
 
-8. FullCalendar's default purple styling: Used DevTools to identify where the styling was located and adjusted accordingly to allow personalised styling.
+8. FullCalendar's default purple styling: FullCalendar's default purple styling conflicted with the website's colour scheme. I used browser developer tools to identify the relevant CSS rules and override them with custom styling to maintain a consistent appearance.
 
 ### Not Fixed
 
+No outstanding bugs are currently known. The application was tested throughout development, and identified issues were investigated and resolved.
 
 # Project Evaluation
 
