@@ -517,6 +517,7 @@ The Booking model stores the details of restaurant reservations and connects cus
 | guests | The number of guests included in the booking. |
 | duration_minutes | The expected duration of the reservation in minutes. |
 | status | Records the current status of the booking. |
+| special_requests | Text field for users to add requests or accommodations. |
 
 The user foreign key uses on_delete=models.CASCADE, meaning that deleting a user also deletes their associated booking records. The table foreign key uses on_delete=models.PROTECT, preventing a table from being deleted while booking records still reference it. The table relationship is optional at database level, allowing a booking record to exist without an allocated table where necessary.
 
@@ -860,6 +861,8 @@ Automated testing also verifies that booking availability loads correctly, updat
 ### Actual Result
 
 I manually tested the complete reservation process, including creating a booking, viewing the reservation on the profile page, editing the booking details and successfully cancelling the reservation.
+
+For the delete booking function, rather than permanently deleting cancelled bookings, the application updates their status to 'cancelled'. This preserves historical booking information while ensuring cancelled reservations no longer affect table availability.
 
 Automated tests were also implemented to verify that selecting a date correctly updates the booking form, cancelling a reservation releases the allocated table, and cancelled bookings no longer prevent other customers from booking the same time slot.
 
