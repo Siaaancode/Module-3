@@ -403,12 +403,14 @@ The design choices made throughout this project were intended to create a clean,
 ## Colour Palette
 
 White - #FFFFFF
+
 Black - #000000
+
 Red - #ff0000
 
-## Webaim colour contrast accessability
+I selected this colour palette because the colours reflect the visual identity and cultural influences of Japan, the country that inspired the restaurant's cuisine. This helps establish a consistent theme throughout the website while reinforcing its Japanese identity.
 
-### WebAIM Colour Contrast Accessibility
+## WebAIM Colour Contrast Accessibility
 
 I used the WebAIM Colour Contrast Checker to assess the contrast between the main colours used throughout the Kokoro website: white, black and red. I tested each colour combination (white and black, white and red, and red and black) to ensure that text remains readable against its background and that the colour scheme meets accessibility guidelines. These checks help ensure that users, including those with visual impairments or colour vision deficiencies, can navigate and understand the website more easily. The results were used to inform my colour choices and maintain a consistent design without compromising readability.
 
