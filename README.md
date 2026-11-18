@@ -442,7 +442,6 @@ For the typography I have chosen GoogleFont' Work Sans (https://fonts.google.com
 - Jest, Javascript testing.
 - DevTools, Inspect and Lighthouse.
 - WebAIM, Colour contrast checker.
-- Favic-o-matic, Favicon generator.
 - GoogleFonts, Custom Fonts.
 - Python, Backend functionality and application logic.
 - Heroku, Deploy and host the website online.
@@ -579,15 +578,16 @@ Together, these models and validation rules provide the foundation for managing 
 | Prompts the customer to select a date when no date is selected. | The time dropdown should prompt the customer to select a date before attempting to retrieve available booking times. | A prompt is displayed asking the customer to select a date before checking availability. | Passed |
 | Disables the dropdown while availability is loading. | The time dropdown should be disabled while the availability request is being processed to prevent premature selections. | The dropdown is disabled during the loading process and becomes available again once the request has completed. | Passed |
 
-
-
 ## Django's built-in testing framework (Automated testing)
 
 ![Django Tests](/bookings/static/images/tests_images/django_tests.png)
 
 . = Test passed
+
 F = Test failed
+
 E = Test encountered an error
+
 OK = Tests passed
 
 | Test | Expected result | Actual result | Status |
