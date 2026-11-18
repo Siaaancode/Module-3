@@ -451,6 +451,31 @@ For the typography I have chosen GoogleFont' Work Sans (https://fonts.google.com
 - WhiteNoise, Static file serving.
 - Gunicorn, WSGI application server for Django
 
+# Used Django Templates
+
+Django's template language has been used throughout my application to connect the backend functionality with the front-end interface. Templates are used to allow information retrieved from the database and passed through Django views to be displayed to users.
+
+The templates use a combination of tags, variable, filters and conditional statements to control how the information is shown.
+
+Templates used include:
+
+1. Loading static files:
+Static files were used at the top of all the html files to load libraries, css, javascript and image files. This ensured that static files were managed correctly by Django.
+
+2. URL template tags:
+The URL tags generated links using named URL patterns defined in the application's URL configuration. This helped maintain consistent navigation and avoids hardcoding URL paths throughout the templates.
+
+3. Conditional statements:
+I used conditional statements to display different navigation options depending on whether a user is authenticated. An example of this is the signup / login and Welcome, user / log out within the navigation bar.
+
+4. Loops:
+Examples of the use of this is on the profile page, to iterate through the bookings passed from the Django view. This allows each reservation to be displayed without manually creating separate HTML elements for every booking.
+
+5. Variables and filters:
+An example of this can be seen on the profile page, where variables and template filters are used to retrieve and display booking information from the database. This allows customers to view details of their confirmed reservations dynamically. 
+
+These features allow the application to display database information dynamically, respond to different user states and reduce the need to duplicate HTML code. They also demonstrate how Django's backend views and template system work together to provide the application's functionality.
+
 # Database SCHEMA
 
 The Kokoro restaurant booking system uses a relational database to store and manage customer accounts, restaurant tables and bookings. The database is managed through Django's Object-Relational Mapper (ORM), which allows the application to create, retrieve, update and manage records using Python models.
